@@ -20,20 +20,20 @@ const LoginPage = () => {
 
   return (
     <div className={css.formWrapper}>
-      <form className={css.form} onSubmit={handleSubmit} autoComplete={false}>
+      <form className={css.form} onSubmit={handleSubmit} autoComplete="false">
         <input
           type="email"
           name="email"
           placeholder="email"
-          value={''}
           required
+          autoComplete="false"
         />
         <input
           type="password"
           name="password"
           placeholder="password"
-          value={''}
           required
+          autoComplete="false"
         />
         <button type="submit">Log In</button>
       </form>

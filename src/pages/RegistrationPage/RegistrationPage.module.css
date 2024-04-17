@@ -1,0 +1,26 @@
+.formWrapper {
+  padding-top: 50px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  width: 600px;
+  margin: 0 auto;
+  gap: 20px;
+  padding: 15px;
+}
+
+.form {
+  input {
+    height: 50px;
+    padding-left: 15px;
+  }
+
+  button {
+    height: 50px;
+    width: 150px;
+    margin: 0 auto;
+  }
+}

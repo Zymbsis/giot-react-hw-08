@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const axiosInstance = axios.create({
   baseURL: 'https://661e6c4998427bbbef048439.mockapi.io',
+  // baseURL: 'https://connections-api.herokuapp.com',
+  // headers: { Authorization: '' },
 });
 
 export const fetchContacts = createAsyncThunk(
@@ -40,3 +42,15 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
+
+// export const updateContact = createAsyncThunk(
+//   'contacts/updateContact',
+//   async (contactId, thunkAPI) => {
+//     try {
+//       const { data } = await axiosInstance.patch(`/contacts/${contactId}`);
+//       return data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue('update error');
+//     }
+//   }
+// );

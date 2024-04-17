@@ -15,13 +15,12 @@ const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
 
 const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const isUserRefreshing = useSelector(selectIsUserRefreshing);
 
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  // }, [dispatch]);
-  // const isUserRefreshing = false;
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return isUserRefreshing ? (
     <b>Refreshing user...</b>

@@ -17,7 +17,7 @@ const ContactList = () => {
 
   return (
     <div className={css.contactsWrapper}>
-      {/* {visibleContacts.length > 0 && (
+      {visibleContacts.length > 0 && (
         <ul className={css.list}>
           {visibleContacts.map(contact => {
             return (
@@ -27,7 +27,7 @@ const ContactList = () => {
             );
           })}
         </ul>
-      )} */}
+      )}
       {loading && <Loader />}
       {error !== null && <ErrorMessage />}
     </div>

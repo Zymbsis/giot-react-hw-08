@@ -23,26 +23,13 @@ const RegistrationPage = () => {
   return (
     <div className={css.formWrapper}>
       <form className={css.form} onSubmit={handleSubmit} autoComplete="false">
-        <input
-          type="name"
-          name="name"
-          placeholder="name"
-          required
-          autoComplete="false"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="email"
-          required
-          autoComplete="false"
-        />
+        <input type="name" name="name" placeholder="name" required />
+        <input type="email" name="email" placeholder="email" required />
         <input
           type="password"
           name="password"
           placeholder="password"
           required
-          autoComplete="false"
         />
         <button type="submit">Sign up</button>
       </form>

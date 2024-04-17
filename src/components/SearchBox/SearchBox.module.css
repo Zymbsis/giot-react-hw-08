@@ -1,0 +1,21 @@
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.searchForm {
+  label {
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 5px;
+  }
+
+  input {
+    height: 50px;
+    padding-left: 15px;
+    font-size: 20px;
+    border: 1px solid cadetblue;
+    border-radius: 10px;
+  }
+}

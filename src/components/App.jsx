@@ -39,9 +39,7 @@ const App = () => {
         />
         <Route
           path="/login"
-          element={
-            <RegisteredRoute redirectTo="/contacts" component={<LoginPage />} />
-          }
+          element={<RegisteredRoute redirectTo="/" component={<LoginPage />} />}
         />
         <Route
           path="/contacts"

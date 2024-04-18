@@ -3,29 +3,10 @@ import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations';
 
 import { FaArrowRight } from 'react-icons/fa';
-import { Formik, Form, useField } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import clsx from 'clsx';
 import css from './ContactForm.module.css';
-
-const MyInput = ({ label, ...props }) => {
-  const [field, meta] = useField(props);
-  return (
-    <>
-      <label htmlFor={props.id}>{label}</label>
-      <input
-        className={clsx(css.input, {
-          [css.invalid]: meta.touched && meta.error,
-        })}
-        {...field}
-        {...props}
-      />
-      {meta.touched && meta.error ? (
-        <span className={css.error}>{meta.error}</span>
-      ) : null}
-    </>
-  );
-};
+import CreateInput from '../CreateInput/CreateInput';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -57,8 +38,13 @@ const ContactForm = () => {
       validationSchema={FeedbackSchema}
     >
       <Form className={css.form}>
-        <MyInput label="Name" name="name" type="text" id={formId.name} />
-        <MyInput label="Number" name="number" type="tel" id={formId.number} />
+        <CreateInput label="Name" name="name" type="text" id={formId.name} />
+        <CreateInput
+          label="Number"
+          name="number"
+          type="tel"
+          id={formId.number}
+        />
         <button className={css.addButton} type="submit">
           <span>Add contact</span> <FaArrowRight className={css.icon} />
         </button>

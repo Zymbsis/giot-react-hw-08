@@ -1,39 +1,56 @@
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
-
+import * as Yup from 'yup';
 import css from './RegistrationPage.module.css';
+import { Form, Formik } from 'formik';
+import CreateInput from '../../components/CreateInput/CreateInput';
 
 const RegistrationPage = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.target;
-    const credentials = {
-      name: form.elements.name.value,
-      email: form.elements.email.value,
-      password: form.elements.password.value,
-    };
-    console.log(credentials);
-
-    dispatch(register(credentials));
-    form.reset();
+  const handleSubmit = (values, actions) => {
+    dispatch(register(values));
+    actions.resetForm();
   };
 
+  const FeedbackSchema = Yup.object().shape({
+    name: Yup.string()
+      .min(3, 'Too Short! Length must be between 3 and 50 characters')
+      .max(50, 'Too Long! Length must be between 3 and 50 characters')
+      .required('Required'),
+    email: Yup.string()
+      .min(3, 'Too Short! Length must be between 3 and 50 characters')
+      .max(50, 'Too Long! Length must be between 3 and 50 characters')
+      .required('Required'),
+    password: Yup.string()
+      .min(3, 'Too Short! Length must be between 3 and 50 characters')
+      .max(50, 'Too Long! Length must be between 3 and 50 characters')
+      .required('Required'),
+  });
+
   return (
-    <div className={css.formWrapper}>
-      <form className={css.form} onSubmit={handleSubmit}>
-        <input type="name" name="name" placeholder="name" required />
-        <input type="email" name="email" placeholder="email" required />
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          required
-        />
-        <button type="submit">Sign up</button>
-      </form>
-    </div>
+    <section className="section">
+      <div className="container">
+        <Formik
+          initialValues={{ name: '', email: '', password: '' }}
+          onSubmit={handleSubmit}
+          validationSchema={FeedbackSchema}
+        >
+          <Form className={css.form}>
+            <CreateInput placeholder="Name" name="name" type="text" />
+            <CreateInput placeholder="Email" name="email" type="email" />
+            <CreateInput
+              placeholder="Password"
+              name="password"
+              type="password"
+            />
+            <button className={css.signUpButton} type="submit">
+              Sign Up
+            </button>
+          </Form>
+        </Formik>
+      </div>
+    </section>
   );
 };
 

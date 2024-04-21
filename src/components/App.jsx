@@ -5,7 +5,7 @@ import Layout from './Layout/Layout';
 import PrivateRoute from './PrivateRoute';
 import RegisteredRoute from './RegisteredRoute';
 import { refreshUser } from '../redux/auth/operations';
-import { selectIsUserRefreshing } from '../redux/auth/selectors';
+import { selectIsUserRefreshing } from '../redux/auth/slice';
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));

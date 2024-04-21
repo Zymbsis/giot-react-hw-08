@@ -80,6 +80,25 @@ const authSlice = createSlice({
         state.error = action.payload;
       });
   },
+  selectors: {
+    selectUserName: state => state.user.name,
+    selectUserEmail: state => state.user.email,
+    selectUserToken: state => state.token,
+    selectIsUserLoggedIn: state => state.isLoggedIn,
+    selectIsUserRefreshing: state => state.isRefreshing,
+    selectLoading: state => state.loading,
+    selectError: state => state.error,
+  },
 });
+
+export const {
+  selectUserName,
+  selectUserEmail,
+  selectUserToken,
+  selectIsUserLoggedIn,
+  selectIsUserRefreshing,
+  selectLoading,
+  selectError,
+} = authSlice.selectors;
 
 export const authReducer = authSlice.reducer;

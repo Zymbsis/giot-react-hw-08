@@ -79,7 +79,6 @@ const authSlice = createSlice({
     selectError: state => state.error,
   },
 });
-
 export const {
   selectUserName,
   selectUserEmail,

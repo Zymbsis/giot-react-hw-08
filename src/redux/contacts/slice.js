@@ -17,6 +17,11 @@ const handleRejected = (state, action) => {
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: initialState,
+  reducers: {
+    clearContacts(state) {
+      state.items = [];
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchContacts.pending, handlePending)
@@ -47,7 +52,6 @@ const contactsSlice = createSlice({
 
 export const { selectContacts, selectLoading, selectError } =
   contactsSlice.selectors;
-console.log(selectLoading);
 
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
@@ -56,5 +60,5 @@ export const selectFilteredContacts = createSelector(
       contact.name.toLowerCase().includes(filterName.toLowerCase())
     )
 );
-
+export const { clearContacts } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;

@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { clearContacts } from '../contacts/slice';
 
 const authAxios = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',
@@ -45,6 +47,7 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     const res = await authAxios.post(`/users/logout`);
     setAuthHeader();
+    useDispatch(clearContacts());
     return res.data;
   } catch (error) {
     return thunkAPI.rejectWithValue('logout error');

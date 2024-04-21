@@ -16,6 +16,16 @@ const initialState = {
 const handleRejected = (state, action) => {
   state.loading = false;
   state.error = action.payload;
+  if (action.type === 'auth/refresh/rejected') {
+    state.isRefreshing = false;
+  }
+};
+const handlePending = (state, action) => {
+  state.loading = true;
+  state.error = null;
+  if (action.type === 'auth/refresh/pending') {
+    state.isRefreshing = true;
+  }
 };
 
 const authSlice = createSlice({
@@ -23,23 +33,10 @@ const authSlice = createSlice({
   initialState: initialState,
   extraReducers: builder => {
     builder
-      .addCase(register.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(login.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(refreshUser.pending, state => {
-        state.loading = true;
-        state.error = null;
-        state.isRefreshing = true;
-      })
-      .addCase(logout.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
+      .addCase(register.pending, handlePending)
+      .addCase(login.pending, handlePending)
+      .addCase(refreshUser.pending, handlePending)
+      .addCase(logout.pending, handlePending)
       .addCase(register.fulfilled, (state, action) => {
         state.loading = false;
         state.token = action.payload.token;
@@ -69,10 +66,8 @@ const authSlice = createSlice({
       })
       .addCase(register.rejected, handleRejected)
       .addCase(login.rejected, handleRejected)
-      .addCase(refreshUser.rejected, state => {
-        handleRejected, (state.isRefreshing = false);
-      })
-      .addCase(logout.rejected, handleRejected);
+      .addCase(logout.rejected, handleRejected)
+      .addCase(refreshUser.rejected, handleRejected);
   },
   selectors: {
     selectUserName: state => state.user.name,

@@ -47,7 +47,7 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     const res = await authAxios.post(`/users/logout`);
     setAuthHeader();
-    useDispatch(clearContacts());
+    // useDispatch(clearContacts());
     return res.data;
   } catch (error) {
     return thunkAPI.rejectWithValue('logout error');

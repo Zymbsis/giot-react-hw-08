@@ -11,7 +11,7 @@ const Token = () => {
   const token = useSelector(selectUserToken);
   return token;
 };
-axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${Token}`;
+axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${Token()}`;
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',

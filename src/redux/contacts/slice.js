@@ -39,14 +39,15 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.rejected, handleRejected);
   },
   selectors: {
-    selectContacts: state => state.contacts.items,
-    selectLoading: state => state.contacts.loading,
-    selectError: state => state.contacts.error,
+    selectContacts: state => state.items,
+    selectLoading: state => state.loading,
+    selectError: state => state.error,
   },
 });
 
 export const { selectContacts, selectLoading, selectError } =
   contactsSlice.selectors;
+console.log(selectLoading);
 
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],

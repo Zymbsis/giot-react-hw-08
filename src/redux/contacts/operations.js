@@ -1,17 +1,29 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// const token = useSelector(selectUserToken)
+
 const axiosInstance = axios.create({
-  baseURL: 'https://661e6c4998427bbbef048439.mockapi.io',
-  // baseURL: 'https://connections-api.herokuapp.com',
-  // headers: { Authorization: '' },
+  // baseURL: 'https://661e6c4998427bbbef048439.mockapi.io',
+  baseURL: 'https://connections-api.herokuapp.com',
+  // headers: { Authorization: `Bearer ${token}` },
 });
+const setAuthHeader = (token = null) => {
+  if (token) {
+    axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  } else {
+    delete axiosInstance.defaults.headers.common['Authorization'];
+  }
+};
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
       const { data } = await axiosInstance.get('/contacts');
+      console.log(data);
+
+      setAuthHeader(data.token);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue('fetch error');

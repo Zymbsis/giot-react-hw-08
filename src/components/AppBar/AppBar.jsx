@@ -8,7 +8,8 @@ import UserMenu from '../UserMenu/UserMenu';
 import css from './AppBar.module.css';
 
 const AppBar = () => {
-  const isUserLoggedIn = useSelector(selectIsUserLoggedIn);
+  // const isUserLoggedIn = useSelector(selectIsUserLoggedIn);
+  const isUserLoggedIn = true;
 
   return (
     <header className={css.header}>

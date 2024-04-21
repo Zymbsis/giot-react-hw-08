@@ -19,11 +19,10 @@ export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const state = thunkAPI.getState();
-      const persistedToken = state.auth.token;
+      const token = thunkAPI.getState().auth.token;
       axiosInstance.defaults.headers.common[
         'Authorization'
-      ] = `Bearer ${persistedToken}`;
+      ] = `Bearer ${token}`;
       const { data } = await axiosInstance.get('/contacts');
       return data;
     } catch (error) {

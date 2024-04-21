@@ -1,20 +1,23 @@
 import { useField } from 'formik';
 import clsx from 'clsx';
 
-const CreateInput = ({ label, invalidClassName, ...props }) => {
+const CreateInput = ({
+  label,
+  wrapperClassName,
+  invalidClassName,
+  ...props
+}) => {
   const [field, meta] = useField(props);
   return (
-    <>
+    <div
+      className={clsx(wrapperClassName, {
+        [invalidClassName]: meta.touched && meta.error,
+      })}
+    >
+      <input {...field} {...props} />
       <label htmlFor={props.id}>{label}</label>
-      <input
-        className={clsx({
-          [invalidClassName]: meta.touched && meta.error,
-        })}
-        {...field}
-        {...props}
-      />
       {meta.touched && meta.error ? <span>{meta.error}</span> : null}
-    </>
+    </div>
   );
 };
 

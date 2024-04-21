@@ -40,6 +40,8 @@ const LoginPage = () => {
               id={formId.email}
               name="email"
               type="email"
+              placeholder=""
+              wrapperClassName={css.inputWrapper}
               invalidClassName={css.invalid}
             />
             <CreateInput
@@ -47,6 +49,8 @@ const LoginPage = () => {
               id={formId.password}
               name="password"
               type="password"
+              placeholder=""
+              wrapperClassName={css.inputWrapper}
               invalidClassName={css.invalid}
             />
             <button className={css.signUpButton} type="submit">

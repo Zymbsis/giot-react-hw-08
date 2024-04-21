@@ -7,22 +7,20 @@ const axiosInstance = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',
 });
 
-// const setAuthHeader = (token = null) => {
-//   if (token) {
-//     axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-//   } else {
-//     delete axiosInstance.defaults.headers.common['Authorization'];
-//   }
-// };
+const Token = () => {
+  const token = useSelector(selectUserToken);
+  return token;
+};
+axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${Token}`;
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.token;
-      axiosInstance.defaults.headers.common[
-        'Authorization'
-      ] = `Bearer ${token}`;
+      // const token = thunkAPI.getState().auth.token;
+      // axiosInstance.defaults.headers.common[
+      //   'Authorization'
+      // ] = `Bearer ${token}`;
       const { data } = await axiosInstance.get('/contacts');
       return data;
     } catch (error) {
@@ -35,10 +33,10 @@ export const addContact = createAsyncThunk(
   'contacts/addContact',
   async ({ name, number }, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.token;
-      axiosInstance.defaults.headers.common[
-        'Authorization'
-      ] = `Bearer ${token}`;
+      // const token = thunkAPI.getState().auth.token;
+      // axiosInstance.defaults.headers.common[
+      //   'Authorization'
+      // ] = `Bearer ${token}`;
       const { data } = await axiosInstance.post('/contacts', { name, number });
       return data;
     } catch (error) {
@@ -51,10 +49,10 @@ export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (contactId, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.token;
-      axiosInstance.defaults.headers.common[
-        'Authorization'
-      ] = `Bearer ${token}`;
+      // const token = thunkAPI.getState().auth.token;
+      // axiosInstance.defaults.headers.common[
+      //   'Authorization'
+      // ] = `Bearer ${token}`;
       const { data } = await axiosInstance.delete(`/contacts/${contactId}`);
       return data;
     } catch (error) {

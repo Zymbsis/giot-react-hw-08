@@ -7,20 +7,14 @@ const axiosInstance = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',
 });
 
-const Token = () => {
-  const token = useSelector(selectUserToken);
-  return token;
-};
-axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${Token()}`;
-
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
       // const token = thunkAPI.getState().auth.token;
-      // axiosInstance.defaults.headers.common[
-      //   'Authorization'
-      // ] = `Bearer ${token}`;
+      axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${
+        thunkAPI.getState().auth.token
+      }`;
       const { data } = await axiosInstance.get('/contacts');
       return data;
     } catch (error) {
@@ -34,9 +28,9 @@ export const addContact = createAsyncThunk(
   async ({ name, number }, thunkAPI) => {
     try {
       // const token = thunkAPI.getState().auth.token;
-      // axiosInstance.defaults.headers.common[
-      //   'Authorization'
-      // ] = `Bearer ${token}`;
+      axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${
+        thunkAPI.getState().auth.token
+      }`;
       const { data } = await axiosInstance.post('/contacts', { name, number });
       return data;
     } catch (error) {
@@ -50,9 +44,9 @@ export const deleteContact = createAsyncThunk(
   async (contactId, thunkAPI) => {
     try {
       // const token = thunkAPI.getState().auth.token;
-      // axiosInstance.defaults.headers.common[
-      //   'Authorization'
-      // ] = `Bearer ${token}`;
+      axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${
+        thunkAPI.getState().auth.token
+      }`;
       const { data } = await axiosInstance.delete(`/contacts/${contactId}`);
       return data;
     } catch (error) {

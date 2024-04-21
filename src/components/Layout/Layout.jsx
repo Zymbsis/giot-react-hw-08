@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <AppBar />
-      <Suspense fallback={<div className={css.suspens}></div>}>
+      <Suspense fallback={<div className={css.suspense}></div>}>
         {children}
       </Suspense>
     </>

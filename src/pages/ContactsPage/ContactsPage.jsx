@@ -15,9 +15,6 @@ const ContactsPage = () => {
 
   return (
     <div className="container">
-      <h1 className={css.mainTitle}>
-        Phone<span>book</span>
-      </h1>
       <div className={css.phonebookWrapper}>
         <div className={css.formAndFilterWrapper}>
           <ContactForm />

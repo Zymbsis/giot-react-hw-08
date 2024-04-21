@@ -1,7 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
-import { selectUserToken } from '../auth/slice';
 
 const contactsAxios = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',

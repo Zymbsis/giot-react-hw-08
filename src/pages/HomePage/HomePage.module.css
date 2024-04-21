@@ -3,7 +3,7 @@
   padding-left: 120px;
 }
 
-.mainTitle {
+.phoneBookLink {
   position: relative;
   font-family: 'Junge', sans-serif;
   font-size: 86px;
@@ -11,7 +11,7 @@
   font-weight: 500;
 }
 
-.mainTitle::before {
+.phoneBookLink::before {
   content: '';
   position: absolute;
   width: 550px;

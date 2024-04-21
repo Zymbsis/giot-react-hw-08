@@ -35,6 +35,10 @@ export const addContact = createAsyncThunk(
   'contacts/addContact',
   async ({ name, number }, thunkAPI) => {
     try {
+      const token = thunkAPI.getState().auth.token;
+      axiosInstance.defaults.headers.common[
+        'Authorization'
+      ] = `Bearer ${token}`;
       const { data } = await axiosInstance.post('/contacts', { name, number });
       return data;
     } catch (error) {
@@ -47,6 +51,10 @@ export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (contactId, thunkAPI) => {
     try {
+      const token = thunkAPI.getState().auth.token;
+      axiosInstance.defaults.headers.common[
+        'Authorization'
+      ] = `Bearer ${token}`;
       const { data } = await axiosInstance.delete(`/contacts/${contactId}`);
       return data;
     } catch (error) {

@@ -42,25 +42,28 @@ const RegistrationPage = () => {
             <CreateInput
               label="Name"
               id={formId.name}
-              placeholder="Name"
+              placeholder=""
               name="name"
               type="text"
+              wrapperClassName={css.inputWrapper}
               invalidClassName={css.invalid}
             />
             <CreateInput
               label="Email"
               id={formId.email}
-              placeholder="Email"
+              placeholder=""
               name="email"
               type="email"
+              wrapperClassName={css.inputWrapper}
               invalidClassName={css.invalid}
             />
             <CreateInput
               label="Password"
               id={formId.password}
-              placeholder="Password"
+              placeholder=""
               name="password"
               type="password"
+              wrapperClassName={css.inputWrapper}
               invalidClassName={css.invalid}
             />
             <button className={css.signUpButton} type="submit">

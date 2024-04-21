@@ -38,12 +38,19 @@ const ContactForm = () => {
       validationSchema={FeedbackSchema}
     >
       <Form className={css.form}>
-        <CreateInput label="Name" name="name" type="text" id={formId.name} />
+        <CreateInput
+          label="Name"
+          name="name"
+          type="text"
+          id={formId.name}
+          invalidClassName={css.invalid}
+        />
         <CreateInput
           label="Number"
           name="number"
           type="tel"
           id={formId.number}
+          invalidClassName={css.invalid}
         />
         <button className={css.addButton} type="submit">
           <span>Add contact</span> <FaArrowRight className={css.icon} />

@@ -4,9 +4,11 @@ import css from './LoginPage.module.css';
 import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
 import CreateInput from '../../components/CreateInput/CreateInput';
+import { useId } from 'react';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const formId = { email: useId(), password: useId() };
   const handleSubmit = (values, actions) => {
     console.log(values);
     dispatch(login(values));
@@ -33,11 +35,19 @@ const LoginPage = () => {
           validationSchema={FeedbackSchema}
         >
           <Form className={css.form}>
-            <CreateInput placeholder="Email" name="email" type="email" />
             <CreateInput
-              placeholder="Password"
+              label="Email"
+              id={formId.email}
+              name="email"
+              type="email"
+              invalidClassName={css.invalid}
+            />
+            <CreateInput
+              label="Password"
+              id={formId.password}
               name="password"
               type="password"
+              invalidClassName={css.invalid}
             />
             <button className={css.signUpButton} type="submit">
               Log In

@@ -19,7 +19,7 @@ export const fetchContacts = createAsyncThunk(
       // axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${
       //   thunkAPI.getState().auth.token
       // }`;
-      auth();
+      auth(thunkAPI);
       const { data } = await axiosInstance.get('/contacts');
       return data;
     } catch (error) {

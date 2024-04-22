@@ -55,12 +55,10 @@ export const { selectContacts, selectLoading, selectError } =
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
   (contacts, filterName) =>
-    contacts.filter(contact =>
-      contact.name
-        .toLowerCase()
-        .includes(
-          filterName.toLowerCase() || contact.number.includes(filterName)
-        )
+    contacts.filter(
+      contact =>
+        contact.name.toLowerCase().includes(filterName.toLowerCase()) ||
+        contact.number.includes(filterName)
     )
 );
 export const { clearContacts } = contactsSlice.actions;

@@ -4,8 +4,8 @@ import css from './ModalWindow.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   modalClose,
+  selectActionType,
   selectIsOpen,
-  selectRenderedComponent,
 } from '../../redux/modal/slice';
 import clsx from 'clsx';
 import AuthenticationModal from '../AuthenticationModal/AuthenticationModal';
@@ -14,7 +14,7 @@ import LogOutModal from '../LogOutModal/LogOutModal';
 const ModalWindow = () => {
   ReactModal.setAppElement('#root');
   const isModalOpen = useSelector(selectIsOpen);
-  const actionType = useSelector(selectRenderedComponent);
+  const actionType = useSelector(selectActionType);
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(modalClose());

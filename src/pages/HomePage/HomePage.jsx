@@ -8,7 +8,8 @@ const HomePage = () => {
   const isUserLoggedIn = useSelector(selectIsUserLoggedIn);
   const dispatch = useDispatch();
   const handleClick = () => {
-    !isUserLoggedIn && dispatch(modalOpen('AuthenticationModal'));
+    !isUserLoggedIn &&
+      dispatch(modalOpen({ actionType: 'AuthenticationModal' }));
   };
   return (
     <section className="section">

@@ -3,15 +3,21 @@ import { logout } from '../auth/operations';
 
 const modalSlice = createSlice({
   name: 'modal',
-  initialState: { isOpen: false, actionType: null },
+  initialState: {
+    isOpen: false,
+    dataModal: { actionType: null, actionData: null },
+  },
   reducers: {
     modalOpen(state, action) {
       state.isOpen = true;
-      state.actionType = action.payload;
+      state.dataModal.actionType = action.payload.actionType;
+      state.dataModal.actionData = action.payload.actionData;
     },
-    modalClose(state) {
+    modalClose(state, action) {
       state.isOpen = false;
-      state.actionType = null;
+      state.dataModal.actionType = null;
+      state.dataModal.actionData = null;
+      console.log(action.payload);
     },
   },
   extraReducers: builder => {
@@ -22,10 +28,12 @@ const modalSlice = createSlice({
   },
   selectors: {
     selectIsOpen: state => state.isOpen,
-    selectRenderedComponent: state => state.actionType,
+    selectActionType: state => state.dataModal.actionType,
+    selectActionData: state => state.dataModal.actionData,
   },
 });
 
 export const { modalOpen, modalClose } = modalSlice.actions;
-export const { selectIsOpen, selectRenderedComponent } = modalSlice.selectors;
+export const { selectIsOpen, selectActionType, selectActionData } =
+  modalSlice.selectors;
 export const modalReducer = modalSlice.reducer;

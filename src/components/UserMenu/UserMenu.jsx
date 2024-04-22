@@ -6,16 +6,14 @@ import { modalOpen } from '../../redux/modal/slice';
 const UserMenu = () => {
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
+  const handleClick = () => {
+    dispatch(modalOpen({ actionType: 'LogOutModal' }));
+  };
 
   return (
     <div className={css.userMenu}>
       <p>{`Welcome, ${userName}`}</p>
-      <button
-        type="button"
-        onClick={() => {
-          dispatch(modalOpen('LogOutModal'));
-        }}
-      >
+      <button type="button" onClick={handleClick}>
         LogOut
       </button>
     </div>

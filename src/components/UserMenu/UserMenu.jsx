@@ -12,7 +12,7 @@ const UserMenu = () => {
 
   return (
     <div className={css.userMenu}>
-      <p>{`Welcome, ${userName}`}</p>
+      <p>{`Welcome, ${userName}!`}</p>
       <button type="button" onClick={handleClick}>
         LogOut
       </button>

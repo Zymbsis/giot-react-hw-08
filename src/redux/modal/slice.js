@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logout } from '../auth/operations';
+import { login, logout, refreshUser, register } from '../auth/operations';
 import { deleteContact } from '../contacts/operations';
 
 const modalSlice = createSlice({
@@ -32,6 +32,18 @@ const modalSlice = createSlice({
         state.isOpen = false;
         state.dataModal.actionType = null;
         state.dataModal.actionData = null;
+      })
+      .addCase(login.rejected, state => {
+        state.isOpen = true;
+      })
+      .addCase(register.rejected, state => {
+        state.isOpen = true;
+      })
+      .addCase(logout.rejected, state => {
+        state.isOpen = true;
+      })
+      .addCase(refreshUser.rejected, state => {
+        state.isOpen = true;
       });
   },
   selectors: {

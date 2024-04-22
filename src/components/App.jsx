@@ -35,7 +35,11 @@ const App = () => {
           <Route
             path="/register"
             element={
-              isUserLoggedIn ? <Navigate to="/contact" /> : <RegistrationPage />
+              isUserLoggedIn ? (
+                <Navigate to="/contacts" />
+              ) : (
+                <RegistrationPage />
+              )
               // <RestrictedRoute
               //   redirectTo="/contacts"
               //   component={<RegistrationPage />}
@@ -45,7 +49,7 @@ const App = () => {
           <Route
             path="/login"
             element={
-              isUserLoggedIn ? <Navigate to="/contact" /> : <LoginPage />
+              isUserLoggedIn ? <Navigate to="/contacts" /> : <LoginPage />
               // <RestrictedRoute
               //   redirectTo="/contacts"
               //   component={<LoginPage />}

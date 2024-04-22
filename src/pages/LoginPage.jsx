@@ -10,8 +10,9 @@ import Loader from '../components/Loader/Loader';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const formId = { email: useId(), password: useId() };
   const authLoading = useSelector(selectAuthLoading);
+  const formId = { email: useId(), password: useId() };
+
   const handleSubmit = (values, actions) => {
     console.log(values);
     dispatch(login(values));

@@ -33,7 +33,6 @@ const LogOutModal = () => {
           </div>
         </div>
       )}
-      return
     </>
   );
 };

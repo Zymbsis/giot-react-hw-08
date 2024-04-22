@@ -10,7 +10,7 @@ import Loader from '../Loader/Loader';
 import css from './ContactList.module.css';
 
 const ContactList = () => {
-  const loading = useSelector(selectLoading);
+  const contactLoading = useSelector(selectLoading);
   const visibleContacts = useSelector(selectFilteredContacts);
 
   return (
@@ -26,7 +26,7 @@ const ContactList = () => {
           })}
         </ul>
       )}
-      {loading && <Loader />}
+      {contactLoading && <Loader />}
     </div>
   );
 };

@@ -16,7 +16,7 @@
   li {
     position: relative;
     width: 100%;
-    border: 1px solid #5f9ea0;
+    border: 1px solid red;
     border-radius: 10px;
     padding: 10px 15px;
     display: flex;

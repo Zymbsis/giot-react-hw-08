@@ -8,28 +8,23 @@
   flex-direction: column;
   gap: 10px;
   overflow-y: scroll;
-  /* scrollbar-width: thin; */
+  scroll-behavior: smooth;
   height: 100%;
 }
 
 .list::-webkit-scrollbar-thumb {
-  border: 1px solid white;
-  background-color: #ccc;
+  border: 1px solid red;
+  background-color: rgba(225, 225, 225, 0.3);
+  border-radius: 5px;
 }
 
 .list::-webkit-scrollbar {
   -webkit-appearance: none;
-  width: 10px !important;
+  width: 5px
 }
 
 .list::-webkit-scrollbar:horizontal {
-  height: 13px;
-}
-
-.list::-webkit-scrollbar-thumb {
-  border-radius: 50px;
-  border: 1px solid white;
-  background-color: var(--scrollbar-thumb-bg);
+  height: 10px;
 }
 
 .list {

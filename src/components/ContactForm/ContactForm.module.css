@@ -1,133 +1,135 @@
-.inputWrapper {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 37px;
-}
-
-input {
-  width: 100%;
-  height: 50px;
-  order: 1;
-  padding-left: 15px;
-  border-radius: 5px;
-  font-size: 20px;
-  color: black;
-  background-color: rgba(255, 255, 255, 0.9);
-  transition: all 300ms ease-in-out;
-}
-
-label {
-  position: relative;
-  width: fit-content;
-  margin-bottom: 15px;
-  color: white;
-  font-size: 20px;
-  font-weight: 500;
-  transition: all 300ms ease-in-out;
-}
-
-label::after {
-  position: absolute;
-  content: '';
-  display: block;
-  width: 0;
-  left: 50%;
-  height: 2px;
-  background-color: transparent;
-  transition: all 300ms ease-in-out;
-}
-
-.inputWrapper:hover label::after,
-input:focus + label::after,
-input:not(:placeholder-shown) + label::after {
-  background-color: white;
-  left: 0;
-  width: 100%;
-}
-
-.inputWrapper span {
-  order: 2;
-  display: inline-block;
-  height: 22px;
-  color: red;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  padding-left: 5px;
-}
-
-.invalid {
-  margin-bottom: 0px;
-}
-
-.invalid input {
-  border: 1px solid red;
-}
-
-button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 auto;
-  margin-top: 25px;
-  width: fit-content;
-  padding: 12px 10px 12px 5px;
-  background-color: transparent;
-  transition: all 300ms ease-in-out;
-}
-
-button {
-  span {
-    position: relative;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
+.form {
+  .inputWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 37px;
   }
-}
 
-.icon {
-  transition: all 300ms ease-in-out;
-}
+  input {
+    width: 100%;
+    height: 50px;
+    order: 1;
+    padding-left: 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: all 300ms ease-in-out;
+  }
 
-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  border: 1px solid white;
-  border-radius: 50px;
-  background-color: rgba(225, 225, 225, 0.4);
-  width: 50px;
-  height: 50px;
-  transition: all 300ms ease;
-}
+  label {
+    position: relative;
+    width: fit-content;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    transition: all 300ms ease-in-out;
+  }
 
-button::after {
-  position: absolute;
-  left: 5px;
-  bottom: 25%;
-  content: '';
-  display: block;
-  width: 0;
-  height: 1px;
-  background-color: white;
-  transition: all 300ms ease;
-}
+  label::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 0;
+    left: 50%;
+    height: 2px;
+    background-color: transparent;
+    transition: all 300ms ease-in-out;
+  }
 
-button:hover .icon {
-  transform: translateX(5px);
-}
+  .inputWrapper:hover label::after,
+  input:focus + label::after,
+  input:not(:placeholder-shown) + label::after {
+    background-color: white;
+    left: 0;
+    width: 100%;
+  }
 
-button:hover:before {
-  width: 100%;
-  background-color: rgba(225, 225, 225, 0.2);
-}
+  .inputWrapper span {
+    order: 2;
+    display: inline-block;
+    height: 22px;
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+  }
 
-button:hover::after {
-  width: 125px;
-}
+  .invalid {
+    margin-bottom: 0px;
+  }
 
-button:active {
-  transform: scale(0.95);
+  .invalid input {
+    border: 1px solid red;
+  }
+
+  button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    margin-top: 25px;
+    width: fit-content;
+    padding: 12px 10px 12px 5px;
+    background-color: transparent;
+    transition: all 300ms ease-in-out;
+  }
+
+  button {
+    span {
+      position: relative;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  .icon {
+    transition: all 300ms ease-in-out;
+  }
+
+  button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border: 1px solid white;
+    border-radius: 50px;
+    background-color: rgba(225, 225, 225, 0.4);
+    width: 50px;
+    height: 50px;
+    transition: all 300ms ease;
+  }
+
+  button::after {
+    position: absolute;
+    left: 5px;
+    bottom: 25%;
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background-color: white;
+    transition: all 300ms ease;
+  }
+
+  button:hover .icon {
+    transform: translateX(5px);
+  }
+
+  button:hover:before {
+    width: 100%;
+    background-color: rgba(225, 225, 225, 0.2);
+  }
+
+  button:hover::after {
+    width: 125px;
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
 }

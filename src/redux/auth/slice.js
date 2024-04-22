@@ -13,18 +13,18 @@ const initialState = {
   error: null,
 };
 
-const handleRejected = (state, action) => {
-  state.loading = false;
-  state.error = true;
-  if (action.type === 'auth/refresh/rejected') {
-    state.isRefreshing = false;
-  }
-};
 const handlePending = (state, action) => {
   state.loading = true;
   state.error = null;
   if (action.type === 'auth/refresh/pending') {
     state.isRefreshing = true;
+  }
+};
+const handleRejected = (state, action) => {
+  state.loading = false;
+  state.error = true;
+  if (action.type === 'auth/refresh/rejected') {
+    state.isRefreshing = false;
   }
 };
 
@@ -55,7 +55,7 @@ const authSlice = createSlice({
         state.loading = false;
         state.user.name = action.payload.name;
         state.user.email = action.payload.email;
-        state.isLoggedIn = true;
+        state.isLoggedIn = false;
         state.isRefreshing = false;
       })
       .addCase(logout.fulfilled, state => {

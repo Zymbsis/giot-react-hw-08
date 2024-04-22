@@ -49,7 +49,7 @@ const App = () => {
           <Route
             path="/contacts"
             element={
-              <PrivateRoute redirectTo="/" component={<ContactsPage />} />
+              <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
             }
           />
           <Route path="*" element={<NotFoundPage />} />

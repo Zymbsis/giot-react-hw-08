@@ -25,6 +25,7 @@ const handleRejected = (state, action) => {
   state.error = true;
   if (action.type === 'auth/refresh/rejected') {
     state.isRefreshing = false;
+    state.error = null;
   }
 };
 

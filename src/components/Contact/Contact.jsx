@@ -9,7 +9,12 @@ import { modalOpen } from '../../redux/modal/slice';
 const Contact = ({ contact: { id, name, number } }) => {
   const dispatch = useDispatch();
   const handleClick = () => {
-    dispatch(modalOpen({ actionType: 'DeleteModal', actionData: id }));
+    dispatch(
+      modalOpen({
+        actionType: 'DeleteModal',
+        actionData: { id: id, name: name },
+      })
+    );
   };
   return (
     <>

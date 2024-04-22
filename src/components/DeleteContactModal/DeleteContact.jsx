@@ -5,14 +5,15 @@ import { selectActionData } from '../../redux/modal/slice';
 
 const DeleteContact = () => {
   const dispatch = useDispatch();
-  const contactId = useSelector(selectActionData);
+  const contact = useSelector(selectActionData);
   const handleClick = () => {
-    dispatch(deleteContact(contactId));
+    dispatch(deleteContact(contact.id));
   };
-  
+
   return (
     <div className={css.deleteModal}>
       <p>Are you sure you want to delete this contact?</p>
+      <p>{contact.name}</p>
       <button type="button" onClick={handleClick}>
         LogOut
       </button>

@@ -12,6 +12,17 @@
   height: 100%;
 }
 
+.list::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px !important;
+}
+
+.list::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  border: 1px solid white;
+  background-color: red
+}
+
 .list {
   li {
     position: relative;

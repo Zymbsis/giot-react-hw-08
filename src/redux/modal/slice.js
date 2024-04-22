@@ -37,7 +37,7 @@ const modalSlice = createSlice({
         state.dataModal.actionType = null;
         state.dataModal.actionData = null;
       })
-      .addCase(deleteContact.fulfilled, state => {
+      .addCase(deleteContact.pending, state => {
         state.isOpen = false;
         state.dataModal.actionType = null;
         state.dataModal.actionData = null;

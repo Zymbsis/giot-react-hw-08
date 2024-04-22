@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../redux/auth/operations';
 import { selectUserName } from '../../redux/auth/slice';
 import css from './UserMenu.module.css';
+import { modalOpen } from '../../redux/modal/slice';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const UserMenu = () => {
       <button
         type="button"
         onClick={() => {
-          dispatch(logout());
+          dispatch(modalOpen('LogOutModal'));
         }}
       >
         LogOut

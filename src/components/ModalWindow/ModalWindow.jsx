@@ -9,6 +9,7 @@ import {
 } from '../../redux/modal/slice';
 import clsx from 'clsx';
 import AuthenticationModal from '../AuthenticationModal/AuthenticationModal';
+import LogOutModal from '../LogOutModal/LogOutModal'
 
 const ModalWindow = () => {
   ReactModal.setAppElement('#root');
@@ -41,6 +42,7 @@ const ModalWindow = () => {
           {renderedComponent === 'AuthenticationModal' && (
             <AuthenticationModal />
           )}
+          {renderedComponent === 'LogOutModal' && <LogOutModal/>}
         </>
       }
     </ReactModal>

@@ -10,6 +10,7 @@ import {
 import clsx from 'clsx';
 import AuthenticationModal from '../AuthenticationModal/AuthenticationModal';
 import LogOutModal from '../LogOutModal/LogOutModal';
+import DeleteContact from '../DeleteContactModal/DeleteContact';
 
 const ModalWindow = () => {
   ReactModal.setAppElement('#root');
@@ -41,6 +42,7 @@ const ModalWindow = () => {
           ></button>
           {actionType === 'AuthenticationModal' && <AuthenticationModal />}
           {actionType === 'LogOutModal' && <LogOutModal />}
+          {actionType === 'DeleteModal' && <DeleteContact />}
         </>
       }
     </ReactModal>

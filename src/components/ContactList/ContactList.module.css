@@ -8,8 +8,13 @@
   flex-direction: column;
   gap: 10px;
   overflow-y: scroll;
-  scrollbar-width: thin;
+  /* scrollbar-width: thin; */
   height: 100%;
+}
+
+.list::-webkit-scrollbar-thumb {
+  border: 1px solid white;
+  background-color: #ccc;
 }
 
 .list::-webkit-scrollbar {
@@ -17,10 +22,14 @@
   width: 10px !important;
 }
 
+.list::-webkit-scrollbar:horizontal {
+  height: 13px;
+}
+
 .list::-webkit-scrollbar-thumb {
   border-radius: 50px;
   border: 1px solid white;
-  background-color: red
+  background-color: var(--scrollbar-thumb-bg);
 }
 
 .list {

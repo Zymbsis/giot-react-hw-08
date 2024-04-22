@@ -12,7 +12,15 @@
     font-family: 'Junge', sans-serif;
     font-size: 24px;
   }
+}
 
+.buttonWrapper {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+
+.buttonWrapper {
   button {
     position: relative;
     font-family: 'Junge';

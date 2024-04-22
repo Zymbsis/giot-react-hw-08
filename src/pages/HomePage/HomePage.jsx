@@ -1,4 +1,4 @@
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsUserLoggedIn } from '../../redux/auth/slice';
 import css from './HomePage.module.css';
@@ -8,7 +8,7 @@ const HomePage = () => {
   const isUserLoggedIn = useSelector(selectIsUserLoggedIn);
   const dispatch = useDispatch();
   const handleClick = () => {
-    !isUserLoggedIn && dispatch(modalOpen());
+    !isUserLoggedIn && dispatch(modalOpen('AuthenticationModal'));
   };
   return (
     <section className="section">

@@ -14,17 +14,6 @@
 
 .list::-webkit-scrollbar {
   display: none;
-  height: 15px;
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background-color: red;
 }
 
 .list {

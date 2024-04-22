@@ -5,9 +5,13 @@ import { FaUser } from 'react-icons/fa';
 import { FaPhone } from 'react-icons/fa';
 import { MdDeleteForever } from 'react-icons/md';
 import css from './Contact.module.css';
+import { modalOpen } from '../../redux/modal/slice';
 
 const Contact = ({ contact: { id, name, number } }) => {
   const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(modalOpen('DeleteModal'));
+  };
   return (
     <>
       <div className={css.contact}>
@@ -18,13 +22,7 @@ const Contact = ({ contact: { id, name, number } }) => {
         <FaPhone className={css.contactIcon} />
         <p className={css.number}>{number}</p>
       </div>
-      <button
-        className={css.button}
-        type="button"
-        onClick={() => {
-          dispatch(deleteContact(id));
-        }}
-      >
+      <button className={css.button} type="button" onClick={handleClick}>
         <MdDeleteForever className={css.icon} />
       </button>
     </>

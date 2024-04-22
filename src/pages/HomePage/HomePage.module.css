@@ -9,6 +9,7 @@
   font-size: 86px;
   display: block;
   font-weight: 500;
+  width: fit-content;
 }
 
 .phoneBookLink::before {

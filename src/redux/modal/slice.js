@@ -41,9 +41,6 @@ const modalSlice = createSlice({
       })
       .addCase(logout.rejected, state => {
         state.isOpen = true;
-      })
-      .addCase(refreshUser.rejected, state => {
-        state.isOpen = true;
       });
   },
   selectors: {

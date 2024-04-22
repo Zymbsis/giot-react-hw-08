@@ -25,7 +25,7 @@ const LogOutModal = () => {
           <p>Are you sure you want to log out?</p>
           <div className={css.buttonWrapper}>
             <button type="button" onClick={handleDelete}>
-              LogOut
+              Log Out
             </button>
             <button type="button" onClick={handleCancel}>
               Cancel

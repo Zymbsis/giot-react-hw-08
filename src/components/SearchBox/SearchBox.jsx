@@ -6,9 +6,12 @@ import { selectNameFilter } from '../../redux/filters/slice';
 import css from './SearchBox.module.css';
 
 const SearchBox = () => {
-  const searchFieldId = useId();
   const dispatch = useDispatch();
+  const searchFieldId = useId();
   const value = useSelector(selectNameFilter);
+  const handleChange = e => {
+    dispatch(changeFilter(e.target.value));
+  };
 
   return (
     <div className={css.searchForm}>
@@ -18,7 +21,7 @@ const SearchBox = () => {
         name="searchField"
         id={searchFieldId}
         value={value}
-        onChange={e => dispatch(changeFilter(e.target.value))}
+        onChange={handleChange}
       ></input>
     </div>
   );

@@ -75,7 +75,7 @@ const authSlice = createSlice({
     selectUserToken: state => state.token,
     selectIsUserLoggedIn: state => state.isLoggedIn,
     selectIsUserRefreshing: state => state.isRefreshing,
-    selectLoading: state => state.loading,
+    selectAuthLoading: state => state.loading,
     selectAuthError: state => state.error,
   },
 });
@@ -85,7 +85,7 @@ export const {
   selectUserToken,
   selectIsUserLoggedIn,
   selectIsUserRefreshing,
-  selectLoading,
+  selectAuthLoading,
   selectAuthError,
 } = authSlice.selectors;
 

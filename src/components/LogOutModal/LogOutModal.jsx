@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/auth/operations';
-import css from './LogOutModal.module.css';
 import { modalClose } from '../../redux/modal/slice';
 import { selectAuthLoading } from '../../redux/auth/slice';
+
 import Loader from '../Loader/Loader';
+
+import css from './LogOutModal.module.css';
 
 const LogOutModal = () => {
   const dispatch = useDispatch();

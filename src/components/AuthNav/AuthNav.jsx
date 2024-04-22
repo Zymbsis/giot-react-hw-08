@@ -1,8 +1,8 @@
-import { NavLink, Outlet } from 'react-router-dom';
-import css from './AuthNav.module.css';
-import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
+import { NavLink, Outlet } from 'react-router-dom';
 import { modalClose } from '../../redux/modal/slice';
+import clsx from 'clsx';
+import css from './AuthNav.module.css';
 
 const getNavLinkClass = ({ isActive }) =>
   clsx(css.navLink, { [css.navActive]: isActive });

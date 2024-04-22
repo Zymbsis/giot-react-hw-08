@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import css from './DeleteContact.module.css';
 import { deleteContact } from '../../redux/contacts/operations';
 import { modalClose, selectActionData } from '../../redux/modal/slice';
+import css from './DeleteContact.module.css';
 
 const DeleteContact = () => {
   const dispatch = useDispatch();

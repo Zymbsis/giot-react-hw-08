@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
-
+import { MdDeleteForever } from 'react-icons/md';
 import { FaUser } from 'react-icons/fa';
 import { FaPhone } from 'react-icons/fa';
-import { MdDeleteForever } from 'react-icons/md';
-import css from './Contact.module.css';
 import { modalOpen } from '../../redux/modal/slice';
+
+import css from './Contact.module.css';
 
 const Contact = ({ contact: { id, name, number } }) => {
   const dispatch = useDispatch();

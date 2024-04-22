@@ -1,12 +1,14 @@
+import { useId } from 'react';
+import { Form, Formik } from 'formik';
+import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../redux/auth/operations';
-import * as Yup from 'yup';
-import css from './AuthorizationForm.module.css';
-import { Form, Formik } from 'formik';
-import CreateInput from '../components/CreateInput/CreateInput';
-import { useId } from 'react';
 import { selectAuthLoading } from '../redux/auth/slice';
+
+import CreateInput from '../components/CreateInput/CreateInput';
 import Loader from '../components/Loader/Loader';
+
+import css from './AuthorizationForm.module.css';
 
 const RegistrationPage = () => {
   const dispatch = useDispatch();

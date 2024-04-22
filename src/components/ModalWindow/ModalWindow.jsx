@@ -1,27 +1,28 @@
 import ReactModal from 'react-modal';
-
-import css from './ModalWindow.module.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectError } from '../../redux/contacts/slice';
+import { selectAuthError } from '../../redux/auth/slice';
 import {
   modalClose,
   selectActionType,
   selectIsOpen,
 } from '../../redux/modal/slice';
-import clsx from 'clsx';
+
 import AuthenticationModal from '../AuthenticationModal/AuthenticationModal';
 import LogOutModal from '../LogOutModal/LogOutModal';
 import DeleteContact from '../DeleteContactModal/DeleteContact';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import { selectAuthError } from '../../redux/auth/slice';
-import { selectError } from '../../redux/contacts/slice';
+
+import clsx from 'clsx';
+import css from './ModalWindow.module.css';
 
 const ModalWindow = () => {
   ReactModal.setAppElement('#root');
+  const dispatch = useDispatch();
   const isModalOpen = useSelector(selectIsOpen);
   const actionType = useSelector(selectActionType);
   const authError = useSelector(selectAuthError);
   const contactsError = useSelector(selectError);
-  const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(modalClose());
   };

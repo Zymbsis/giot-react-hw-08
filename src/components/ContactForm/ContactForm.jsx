@@ -1,12 +1,13 @@
 import { useId } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contacts/operations';
-
-import { FaArrowRight } from 'react-icons/fa';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import css from './ContactForm.module.css';
+import { FaArrowRight } from 'react-icons/fa';
+import { addContact } from '../../redux/contacts/operations';
+
 import CreateInput from '../CreateInput/CreateInput';
+
+import css from './ContactForm.module.css';
 
 const ContactForm = () => {
   const dispatch = useDispatch();

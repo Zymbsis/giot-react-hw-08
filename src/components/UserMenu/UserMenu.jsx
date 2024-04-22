@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserName } from '../../redux/auth/slice';
-import css from './UserMenu.module.css';
 import { modalOpen } from '../../redux/modal/slice';
+import css from './UserMenu.module.css';
 
 const UserMenu = () => {
   const dispatch = useDispatch();

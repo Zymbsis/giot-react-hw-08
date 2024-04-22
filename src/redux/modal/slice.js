@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logout } from '../auth/operations';
+import { deleteContact } from '../contacts/operations';
 
 const modalSlice = createSlice({
   name: 'modal',
@@ -21,10 +22,17 @@ const modalSlice = createSlice({
     },
   },
   extraReducers: builder => {
-    builder.addCase(logout.fulfilled, state => {
-      state.isOpen = false;
-      state.actionType = null;
-    });
+    builder
+      .addCase(logout.fulfilled, state => {
+        state.isOpen = false;
+        state.dataModal.actionType = null;
+        state.dataModal.actionData = null;
+      })
+      .addCase(deleteContact.fulfilled, state => {
+        state.isOpen = false;
+        state.dataModal.actionType = null;
+        state.dataModal.actionData = null;
+      });
   },
   selectors: {
     selectIsOpen: state => state.isOpen,

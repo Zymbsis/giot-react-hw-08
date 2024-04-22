@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { build } from 'vite';
+import { logout } from '../auth/operations';
 
 const modalSlice = createSlice({
   name: 'modal',
@@ -12,6 +14,12 @@ const modalSlice = createSlice({
       state.isOpen = false;
       state.actionType = null;
     },
+  },
+  extraReducers: builder => {
+    builder.addCase(logout.fulfilled, state => {
+      state.isOpen = false;
+      state.actionType = null;
+    });
   },
   selectors: {
     selectIsOpen: state => state.isOpen,

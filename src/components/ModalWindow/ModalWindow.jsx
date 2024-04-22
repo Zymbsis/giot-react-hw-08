@@ -11,11 +11,14 @@ import clsx from 'clsx';
 import AuthenticationModal from '../AuthenticationModal/AuthenticationModal';
 import LogOutModal from '../LogOutModal/LogOutModal';
 import DeleteContact from '../DeleteContactModal/DeleteContact';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import { selectError } from '../../redux/auth/slice';
 
 const ModalWindow = () => {
   ReactModal.setAppElement('#root');
   const isModalOpen = useSelector(selectIsOpen);
   const actionType = useSelector(selectActionType);
+  const authError = useSelector(selectError);
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(modalClose());
@@ -43,6 +46,7 @@ const ModalWindow = () => {
           {actionType === 'AuthenticationModal' && <AuthenticationModal />}
           {actionType === 'LogOutModal' && <LogOutModal />}
           {actionType === 'DeleteModal' && <DeleteContact />}
+          {authError && <ErrorMessage />}
         </>
       }
     </ReactModal>

@@ -1,13 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { login, logout, refreshUser, register } from '../auth/operations';
-import { deleteContact } from '../contacts/operations';
+import { login, logout, register } from '../auth/operations';
+import {
+  addContact,
+  deleteContact,
+  fetchContacts,
+} from '../contacts/operations';
+
+const initialState = {
+  isOpen: false,
+  dataModal: { actionType: null, actionData: null },
+};
+const handlerForOpenModal = state => {
+  state.isOpen = true;
+};
 
 const modalSlice = createSlice({
   name: 'modal',
-  initialState: {
-    isOpen: false,
-    dataModal: { actionType: null, actionData: null },
-  },
+  initialState: initialState,
   reducers: {
     modalOpen(state, action) {
       state.isOpen = true;
@@ -33,15 +42,12 @@ const modalSlice = createSlice({
         state.dataModal.actionType = null;
         state.dataModal.actionData = null;
       })
-      .addCase(login.rejected, state => {
-        state.isOpen = true;
-      })
-      .addCase(register.rejected, state => {
-        state.isOpen = true;
-      })
-      .addCase(logout.rejected, state => {
-        state.isOpen = true;
-      });
+      .addCase(login.rejected, handlerForOpenModal)
+      .addCase(register.rejected, handlerForOpenModal)
+      .addCase(logout.rejected, handlerForOpenModal)
+      .addCase(fetchContacts.rejected, handlerForOpenModal)
+      .addCase(addContact.rejected, handlerForOpenModal)
+      .addCase(deleteContact.rejected, handlerForOpenModal);
   },
   selectors: {
     selectIsOpen: state => state.isOpen,

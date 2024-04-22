@@ -1,22 +1,8 @@
 .error {
-  padding-top: 40px;
-}
-
-.error {
-  img {
-    margin-bottom: 20px;
-  }
-
-  p {
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-  }
-}
-
-.deleteError {
   text-align: center;
   margin-top: revert;
   color: red;
   font-weight: 600;
+  font-family: 'Junge', sans-serif;
+  font-size: 40px;
 }

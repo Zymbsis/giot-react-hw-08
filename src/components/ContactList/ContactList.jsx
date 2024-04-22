@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import {
-  selectError,
   selectFilteredContacts,
   selectLoading,
 } from '../../redux/contacts/slice';
@@ -8,11 +7,9 @@ import {
 import Contact from '../Contact/Contact';
 import Loader from '../Loader/Loader';
 import css from './ContactList.module.css';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 const ContactList = () => {
   const loading = useSelector(selectLoading);
-  const error = useSelector(selectError);
   const visibleContacts = useSelector(selectFilteredContacts);
 
   return (
@@ -29,7 +26,6 @@ const ContactList = () => {
         </ul>
       )}
       {loading && <Loader />}
-      {error !== null && <ErrorMessage />}
     </div>
   );
 };

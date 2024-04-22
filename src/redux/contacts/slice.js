@@ -10,9 +10,9 @@ const handlePending = state => {
   state.error = null;
 };
 
-const handleRejected = (state, action) => {
+const handleRejected = state => {
   state.loading = false;
-  state.error = action.payload;
+  state.error = true;
 };
 
 const contactsSlice = createSlice({

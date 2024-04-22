@@ -7,7 +7,7 @@ const initialState = {
     email: null,
   },
   token: null,
-  isLoggedIn: false,
+  isLoggedIn: true,
   isRefreshing: false,
   loading: false,
   error: null,
@@ -76,7 +76,7 @@ const authSlice = createSlice({
     selectIsUserLoggedIn: state => state.isLoggedIn,
     selectIsUserRefreshing: state => state.isRefreshing,
     selectLoading: state => state.loading,
-    selectError: state => state.error,
+    selectAuthError: state => state.error,
   },
 });
 export const {
@@ -86,7 +86,7 @@ export const {
   selectIsUserLoggedIn,
   selectIsUserRefreshing,
   selectLoading,
-  selectError,
+  selectAuthError,
 } = authSlice.selectors;
 
 export const authReducer = authSlice.reducer;

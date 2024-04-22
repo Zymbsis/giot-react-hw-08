@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { build } from 'vite';
 import { logout } from '../auth/operations';
 
 const modalSlice = createSlice({

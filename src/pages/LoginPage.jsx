@@ -1,14 +1,17 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../redux/auth/operations';
 import css from './AuthorizationForm.module.css';
 import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
 import CreateInput from '../components/CreateInput/CreateInput';
 import { useId } from 'react';
+import { selectAuthLoading } from '../redux/auth/slice';
+import Loader from '../components/Loader/Loader';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const formId = { email: useId(), password: useId() };
+  const authLoading = useSelector(selectAuthLoading);
   const handleSubmit = (values, actions) => {
     console.log(values);
     dispatch(login(values));
@@ -29,35 +32,39 @@ const LoginPage = () => {
   return (
     <section className="section">
       <div className="container">
-        <Formik
-          initialValues={{ email: '', password: '' }}
-          onSubmit={handleSubmit}
-          validationSchema={FeedbackSchema}
-        >
-          <Form className={css.form}>
-            <CreateInput
-              label="Email"
-              id={formId.email}
-              name="email"
-              type="email"
-              placeholder=""
-              wrapperClassName={css.inputWrapper}
-              invalidClassName={css.invalid}
-            />
-            <CreateInput
-              label="Password"
-              id={formId.password}
-              name="password"
-              type="password"
-              placeholder=""
-              wrapperClassName={css.inputWrapper}
-              invalidClassName={css.invalid}
-            />
-            <button className={css.signUpButton} type="submit">
-              Log In
-            </button>
-          </Form>
-        </Formik>
+        {authLoading ? (
+          <Loader />
+        ) : (
+          <Formik
+            initialValues={{ email: '', password: '' }}
+            onSubmit={handleSubmit}
+            validationSchema={FeedbackSchema}
+          >
+            <Form className={css.form}>
+              <CreateInput
+                label="Email"
+                id={formId.email}
+                name="email"
+                type="email"
+                placeholder=""
+                wrapperClassName={css.inputWrapper}
+                invalidClassName={css.invalid}
+              />
+              <CreateInput
+                label="Password"
+                id={formId.password}
+                name="password"
+                type="password"
+                placeholder=""
+                wrapperClassName={css.inputWrapper}
+                invalidClassName={css.invalid}
+              />
+              <button className={css.signUpButton} type="submit">
+                Log In
+              </button>
+            </Form>
+          </Formik>
+        )}
       </div>
     </section>
   );

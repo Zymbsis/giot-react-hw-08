@@ -6,7 +6,7 @@ import { modalClose } from '../../redux/modal/slice';
 const LogOutModal = () => {
   const dispatch = useDispatch();
   const handleClick = () => {
-    dispatch(logout('LogOutModal'));
+    dispatch(logout());
     dispatch(modalClose());
   };
   return (

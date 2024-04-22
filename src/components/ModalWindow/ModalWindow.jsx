@@ -9,12 +9,12 @@ import {
 } from '../../redux/modal/slice';
 import clsx from 'clsx';
 import AuthenticationModal from '../AuthenticationModal/AuthenticationModal';
-import LogOutModal from '../LogOutModal/LogOutModal'
+import LogOutModal from '../LogOutModal/LogOutModal';
 
 const ModalWindow = () => {
   ReactModal.setAppElement('#root');
   const isModalOpen = useSelector(selectIsOpen);
-  const renderedComponent = useSelector(selectRenderedComponent);
+  const actionType = useSelector(selectRenderedComponent);
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(modalClose());
@@ -39,10 +39,8 @@ const ModalWindow = () => {
             onClick={handleClick}
             aria-label="close button"
           ></button>
-          {renderedComponent === 'AuthenticationModal' && (
-            <AuthenticationModal />
-          )}
-          {renderedComponent === 'LogOutModal' && <LogOutModal/>}
+          {actionType === 'AuthenticationModal' && <AuthenticationModal />}
+          {actionType === 'LogOutModal' && <LogOutModal />}
         </>
       }
     </ReactModal>

@@ -43,6 +43,8 @@ const ContactForm = () => {
           name="name"
           type="text"
           id={formId.name}
+          placeholder=""
+          wrapperClassName={css.inputWrapper}
           invalidClassName={css.invalid}
         />
         <CreateInput
@@ -50,9 +52,11 @@ const ContactForm = () => {
           name="number"
           type="tel"
           id={formId.number}
+          placeholder=""
+          wrapperClassName={css.inputWrapper}
           invalidClassName={css.invalid}
         />
-        <button className={css.addButton} type="submit">
+        <button type="submit">
           <span>Add contact</span> <FaArrowRight className={css.icon} />
         </button>
       </Form>

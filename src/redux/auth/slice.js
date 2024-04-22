@@ -42,20 +42,20 @@ const authSlice = createSlice({
         state.token = action.payload.token;
         state.user.name = action.payload.user.name;
         state.user.email = action.payload.user.email;
-        state.isLoggedIn = false;
+        state.isLoggedIn = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.loading = false;
         state.token = action.payload.token;
         state.user.name = action.payload.user.name;
         state.user.email = action.payload.user.email;
-        state.isLoggedIn = false;
+        state.isLoggedIn = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.loading = false;
         state.user.name = action.payload.name;
         state.user.email = action.payload.email;
-        state.isLoggedIn = false;
+        state.isLoggedIn = true;
         state.isRefreshing = false;
       })
       .addCase(logout.fulfilled, state => {

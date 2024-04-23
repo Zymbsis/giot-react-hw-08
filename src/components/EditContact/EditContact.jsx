@@ -42,18 +42,20 @@ const EditContact = () => {
         validationSchema={FeedbackSchema}
       >
         <Form className={css.form}>
-          <CreateInput
-            name="name"
-            type="text"
-            wrapperClassName={css.inputWrapper}
-            invalidClassName={css.invalid}
-          />
-          <CreateInput
-            name="number"
-            type="tel"
-            wrapperClassName={css.inputWrapper}
-            invalidClassName={css.invalid}
-          />
+          <div className={css.searchForm}>
+            <CreateInput
+              name="name"
+              type="text"
+              wrapperClassName={css.inputWrapper}
+              invalidClassName={css.invalid}
+            />
+            <CreateInput
+              name="number"
+              type="tel"
+              wrapperClassName={css.inputWrapper}
+              invalidClassName={css.invalid}
+            />
+          </div>
           <div className={css.buttonWrapper}>
             <button type="submit">Edit</button>
             <button type="button" onClick={handleCancel}>

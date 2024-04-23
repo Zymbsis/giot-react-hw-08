@@ -12,16 +12,16 @@ const Contact = ({ contact: { id, name, number } }) => {
   const handleDelete = () => {
     dispatch(
       modalOpen({
-        actionType: 'DeleteModal',
+        modalType: 'DeleteModal',
         actionData: id,
       })
     );
   };
-  
+
   const handleEdit = () => {
     dispatch(
       modalOpen({
-        actionType: 'EditModal',
+        modalType: 'EditModal',
         actionData: id,
       })
     );

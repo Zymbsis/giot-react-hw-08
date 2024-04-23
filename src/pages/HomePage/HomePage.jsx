@@ -10,7 +10,7 @@ const HomePage = () => {
 
   const handleClick = () => {
     !isUserLoggedIn &&
-      dispatch(modalOpen({ actionType: 'AuthenticationModal' }));
+      dispatch(modalOpen({ modalType: 'AuthenticationModal' }));
   };
 
   return (

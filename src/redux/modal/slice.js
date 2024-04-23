@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { login, logout, register } from '../auth/operations';
 import {
   addContact,
@@ -6,11 +6,10 @@ import {
   fetchContacts,
   updateContact,
 } from '../contacts/operations';
-import { selectContacts } from '../contacts/slice';
 
 const initialState = {
   isOpen: false,
-  dataModal: { actionType: null, actionData: null },
+  dataModal: { modalType: null, actionData: null },
 };
 
 const handlerForOpenModal = state => {
@@ -23,12 +22,12 @@ const modalSlice = createSlice({
   reducers: {
     modalOpen(state, action) {
       state.isOpen = true;
-      state.dataModal.actionType = action.payload.actionType;
+      state.dataModal.modalType = action.payload.modalType;
       state.dataModal.actionData = action.payload.actionData;
     },
     modalClose(state) {
       state.isOpen = false;
-      state.dataModal.actionType = null;
+      state.dataModal.modalType = null;
       state.dataModal.actionData = null;
     },
   },
@@ -36,17 +35,17 @@ const modalSlice = createSlice({
     builder
       .addCase(logout.fulfilled, state => {
         state.isOpen = false;
-        state.dataModal.actionType = null;
+        state.dataModal.modalType = null;
         state.dataModal.actionData = null;
       })
       .addCase(deleteContact.pending, state => {
         state.isOpen = false;
-        state.dataModal.actionType = null;
+        state.dataModal.modalType = null;
         state.dataModal.actionData = null;
       })
       .addCase(updateContact.pending, state => {
         state.isOpen = false;
-        state.dataModal.actionType = null;
+        state.dataModal.modalType = null;
         state.dataModal.actionData = null;
       })
       .addCase(login.rejected, handlerForOpenModal)
@@ -59,13 +58,13 @@ const modalSlice = createSlice({
   },
   selectors: {
     selectIsOpen: state => state.isOpen,
-    selectActionType: state => state.dataModal.actionType,
+    selectModalType: state => state.dataModal.modalType,
     selectActionData: state => state.dataModal.actionData,
   },
 });
 
 export const { modalOpen, modalClose } = modalSlice.actions;
-export const { selectIsOpen, selectActionType, selectActionData } =
+export const { selectIsOpen, selectModalType, selectActionData } =
   modalSlice.selectors;
 
 export const modalReducer = modalSlice.reducer;

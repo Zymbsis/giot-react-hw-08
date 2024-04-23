@@ -4,7 +4,7 @@ import { selectError } from '../../redux/contacts/slice';
 import { selectAuthError } from '../../redux/auth/slice';
 import {
   modalClose,
-  selectActionType,
+  selectModalType,
   selectIsOpen,
 } from '../../redux/modal/slice';
 
@@ -21,7 +21,7 @@ const ModalWindow = () => {
   ReactModal.setAppElement('#root');
   const dispatch = useDispatch();
   const isModalOpen = useSelector(selectIsOpen);
-  const actionType = useSelector(selectActionType);
+  const modalType = useSelector(selectModalType);
   const authError = useSelector(selectAuthError);
   const contactsError = useSelector(selectError);
   const handleClick = () => {
@@ -48,10 +48,10 @@ const ModalWindow = () => {
             onClick={handleClick}
             aria-label="close button"
           ></button>
-          {actionType === 'AuthenticationModal' && <AuthenticationModal />}
-          {actionType === 'LogoutModal' && <LogOutModal />}
-          {actionType === 'DeleteModal' && <DeleteContact />}
-          {actionType === 'EditModal' && <EditContact />}
+          {modalType === 'AuthenticationModal' && <AuthenticationModal />}
+          {modalType === 'LogoutModal' && <LogOutModal />}
+          {modalType === 'DeleteModal' && <DeleteContact />}
+          {modalType === 'EditModal' && <EditContact />}
           {(authError || contactsError) && <ErrorMessage />}
         </>
       }

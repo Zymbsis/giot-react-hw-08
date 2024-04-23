@@ -9,7 +9,7 @@ const EditContact = () => {
   const contact = useSelector(selectContact);
 
   const handleEdit = () => {
-    dispatch(updateContact(contact[0].id));
+    dispatch(updateContact(contact[0]));
   };
 
   const handleCancel = () => {

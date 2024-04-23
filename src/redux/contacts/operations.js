@@ -52,10 +52,10 @@ export const deleteContact = createAsyncThunk(
 
 export const updateContact = createAsyncThunk(
   'contacts/updateContact',
-  async (contactId, thunkAPI) => {
+  async (credentials, thunkAPI) => {
     try {
       setAuthHeader(thunkAPI);
-      const { data } = await contactsAxios.patch(`/contacts/${contactId}`);
+      const { data } = await contactsAxios.patch(`/contacts/${credentials}`);
       console.log('Hello world');
       return data;
     } catch (error) {

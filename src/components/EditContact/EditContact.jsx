@@ -15,7 +15,9 @@ const EditContact = () => {
   const handleCancel = () => {
     dispatch(modalClose());
   };
-  const handleChange = e => {};
+  const handleChange = e => {
+    console.log(contact[0]);
+  };
   return (
     <div className={css.editModal}>
       <div className={css.searchForm}>

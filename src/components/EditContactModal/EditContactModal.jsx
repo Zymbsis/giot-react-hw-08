@@ -40,7 +40,7 @@ const EditContact = () => {
       validationSchema={FeedbackSchema}
     >
       <Form className={css.form}>
-        <div className={css.searchForm}>
+        <div className={css.formWrapper}>
           <CreateInput
             name="name"
             type="text"

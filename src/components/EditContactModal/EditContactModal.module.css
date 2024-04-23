@@ -1,9 +1,20 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 25px;
   width: 325px;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .form {

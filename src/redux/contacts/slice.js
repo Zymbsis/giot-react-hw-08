@@ -55,11 +55,13 @@ export const { selectContacts, selectLoading, selectError } =
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
   (contacts, filterName) =>
-    contacts.filter(
-      contact =>
-        contact.name.toLowerCase().includes(filterName.toLowerCase()) ||
-        contact.number.includes(filterName)
-    )
+    contacts
+      .filter(
+        contact =>
+          contact.name.toLowerCase().includes(filterName.toLowerCase()) ||
+          contact.number.includes(filterName)
+      )
+      .toSorted((a, b) => a.name.localeCompare(b.name))
 );
 export const { clearContacts } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;

@@ -7,6 +7,24 @@
   padding-top: 30px;
 }
 
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.searchForm {
+  input {
+    height: 50px;
+    padding-left: 15px;
+    font-size: 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+  }
+}
+
 .buttonWrapper {
   display: flex;
   gap: 25px;

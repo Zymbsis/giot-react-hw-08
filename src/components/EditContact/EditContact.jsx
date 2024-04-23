@@ -1,14 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { modalClose, selectActionData } from '../../redux/modal/slice';
+import { modalClose } from '../../redux/modal/slice';
 import css from './EditContact.module.css';
 import { updateContact } from '../../redux/contacts/operations';
+import { selectContact } from '../../redux/contacts/slice';
 
 const EditContact = () => {
   const dispatch = useDispatch();
-  const contact = useSelector(selectActionData);
+  const contact = useSelector(selectContact);
 
   const handleEdit = () => {
-    dispatch(updateContact(contact.id));
+    dispatch(updateContact(contact[0].id));
   };
 
   const handleCancel = () => {
@@ -21,13 +22,13 @@ const EditContact = () => {
         <input
           type="name"
           name="name"
-          value={contact.name}
+          value={contact[0].name}
           onChange={handleChange}
         />
         <input
           type="number"
           name="number"
-          value={contact.number}
+          value={contact[0].number}
           // onChange={handleChange}
         />
       </div>

@@ -9,8 +9,6 @@ const DeleteContact = () => {
   const contact = useSelector(selectContact);
 
   const handleDelete = () => {
-    console.log(contact[0].id, contact[0].name);
-
     dispatch(deleteContact(contact[0].id));
   };
   const handleCancel = () => {

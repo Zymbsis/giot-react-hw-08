@@ -10,6 +10,7 @@ const getNavLinkClass = ({ isActive }) =>
 const AuthNav = () => {
   const dispatch = useDispatch();
   const isModalOpen = useSelector(selectIsOpen);
+
   const handleClick = () => {
     isModalOpen && dispatch(modalClose());
   };

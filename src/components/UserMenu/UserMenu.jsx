@@ -6,6 +6,7 @@ import css from './UserMenu.module.css';
 const UserMenu = () => {
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
+
   const handleClick = () => {
     dispatch(modalOpen({ modalType: 'LogoutModal' }));
   };

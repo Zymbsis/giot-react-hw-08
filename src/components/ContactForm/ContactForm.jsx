@@ -1,8 +1,8 @@
 import { useId } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
 import { FaArrowRight } from 'react-icons/fa';
+import { contactFormValidationSchema } from '../../services/constants';
 import { addContact } from '../../redux/contacts/operations';
 
 import CreateInput from '../CreateInput/CreateInput';
@@ -21,22 +21,11 @@ const ContactForm = () => {
     actions.resetForm();
   };
 
-  const FeedbackSchema = Yup.object().shape({
-    name: Yup.string()
-      .min(3, 'Too Short! Length must be between 3 and 50 characters')
-      .max(50, 'Too Long! Length must be between 3 and 50 characters')
-      .required('Required'),
-    number: Yup.string()
-      .min(3, 'Too Short! Length must be between 3 and 50 characters')
-      .max(50, 'Too Long! Length must be between 3 and 50 characters')
-      .required('Required'),
-  });
-
   return (
     <Formik
       initialValues={{ name: '', number: '' }}
       onSubmit={handleSubmit}
-      validationSchema={FeedbackSchema}
+      validationSchema={contactFormValidationSchema}
     >
       <Form className={css.form}>
         <CreateInput

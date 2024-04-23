@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Form, Formik } from 'formik';
+import { contactFormValidationSchema } from '../../services/constants';
 import { modalClose } from '../../redux/modal/slice';
-import css from './EditContactModal.module.css';
 import { updateContact } from '../../redux/contacts/operations';
 import { selectContact } from '../../redux/contacts/slice';
-import { Form, Formik } from 'formik';
-import * as Yup from 'yup';
-import CreateInput from '../CreateInput/CreateInput';
+
+import CreateInput from '../InputField/InputField';
+
+import css from './EditContactModal.module.css';
 
 const EditContact = () => {
   const dispatch = useDispatch();
@@ -19,25 +21,15 @@ const EditContact = () => {
       })
     );
   };
-
   const handleCancel = () => {
     dispatch(modalClose());
   };
-  const FeedbackSchema = Yup.object().shape({
-    name: Yup.string()
-      .min(3, 'Too Short! Length must be between 3 and 50 characters')
-      .max(50, 'Too Long! Length must be between 3 and 50 characters')
-      .required('Required'),
-    number: Yup.string()
-      .min(3, 'Too Short! Length must be between 3 and 50 characters')
-      .max(50, 'Too Long! Length must be between 3 and 50 characters')
-      .required('Required'),
-  });
+
   return (
     <Formik
       initialValues={{ name: contact.name, number: contact.number }}
       onSubmit={handleSubmit}
-      validationSchema={FeedbackSchema}
+      validationSchema={contactFormValidationSchema}
     >
       <Form className={css.form}>
         <div className={css.formWrapper}>

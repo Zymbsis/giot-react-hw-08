@@ -11,8 +11,8 @@ const EditContact = () => {
   const handleEdit = () => {
     dispatch(
       updateContact({
-        id: contact[0].id,
-        credentials: { name: contact[0].name, number: contact[0].number },
+        id: contact.id,
+        credentials: { name: contact.name, number: contact.number },
       })
     );
   };
@@ -21,7 +21,7 @@ const EditContact = () => {
     dispatch(modalClose());
   };
   const handleChange = e => {
-    console.log(contact[0]);
+    console.log(contact);
   };
   return (
     <div className={css.editModal}>
@@ -29,13 +29,13 @@ const EditContact = () => {
         <input
           type="name"
           name="name"
-          value={contact[0].name}
+          value={contact.name}
           onChange={handleChange}
         />
         <input
           type="text"
           name="number"
-          value={contact[0].number}
+          value={contact.number}
           // onChange={handleChange}
         />
       </div>

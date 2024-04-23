@@ -81,7 +81,7 @@ export const selectFilteredContacts = createSelector(
 
 export const selectContact = createSelector(
   [selectContacts, selectActionData],
-  (contacts, id) => contacts.filter(contact => contact.id === id)
+  (contacts, id) => contacts.filter(contact => contact.id === id)[0]
 );
 
 export const { clearContacts } = contactsSlice.actions;

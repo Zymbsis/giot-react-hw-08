@@ -13,7 +13,7 @@ const Contact = ({ contact: { id, name, number } }) => {
     dispatch(
       modalOpen({
         actionType: 'DeleteModal',
-        actionData: { id: id, name: name },
+        actionData: id,
       })
     );
   };

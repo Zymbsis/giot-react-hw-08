@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { modalClose } from '../../redux/modal/slice';
-import css from './EditContact.module.css';
+import css from './EditContactModal.module.css';
 import { updateContact } from '../../redux/contacts/operations';
 import { selectContact } from '../../redux/contacts/slice';
 import { Form, Formik } from 'formik';

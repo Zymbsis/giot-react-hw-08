@@ -7,7 +7,7 @@ const UserMenu = () => {
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
   const handleClick = () => {
-    dispatch(modalOpen({ actionType: 'LogOutModal' }));
+    dispatch(modalOpen({ actionType: 'LogoutModal' }));
   };
 
   return (

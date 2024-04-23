@@ -21,8 +21,8 @@ const LogOutModal = () => {
       {authLoading ? (
         <Loader />
       ) : (
-        <div className={css.logoutModal}>
-          <p>Are you sure you want to log out?</p>
+        <>
+          <p className={css.logoutTitle}>Are you sure you want to log out?</p>
           <div className={css.buttonWrapper}>
             <button type="button" onClick={handleDelete}>
               Log Out
@@ -31,7 +31,7 @@ const LogOutModal = () => {
               Cancel
             </button>
           </div>
-        </div>
+        </>
       )}
     </>
   );

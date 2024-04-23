@@ -16,9 +16,11 @@ const DeleteContact = () => {
   };
 
   return (
-    <div className={css.deleteModal}>
-      <p>Are you sure you want to delete this contact?</p>
-      <p>{contact.name}</p>
+    <>
+      <p className={css.deleteTitle}>
+        Are you sure you want to delete this contact?
+      </p>
+      <p className={css.deleteTitle}>{contact.name}</p>
       <div className={css.buttonWrapper}>
         <button type="button" onClick={handleDelete}>
           Delete
@@ -27,7 +29,7 @@ const DeleteContact = () => {
           Cancel
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

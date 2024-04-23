@@ -11,7 +11,6 @@ const getNavLinkClass = ({ isActive }) =>
 
 export const Navigation = () => {
   const isUserLoggedIn = useSelector(selectIsUserLoggedIn);
-  // const isUserLoggedIn = true;
 
   return (
     <nav className={css.navigation}>

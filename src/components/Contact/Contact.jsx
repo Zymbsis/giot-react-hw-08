@@ -17,6 +17,7 @@ const Contact = ({ contact: { id, name, number } }) => {
       })
     );
   };
+  
   const handleEdit = () => {
     dispatch(
       modalOpen({

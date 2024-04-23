@@ -22,7 +22,7 @@ const AuthNav = () => {
       <NavLink className={getNavLinkClass} to="/login" onClick={handleClick}>
         Log In
       </NavLink>
-      <Outlet />
+      {/* <Outlet /> */}
     </nav>
   );
 };

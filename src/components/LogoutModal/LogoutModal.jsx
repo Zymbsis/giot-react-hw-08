@@ -1,12 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/auth/operations';
+import { selectAuthLoading } from '../../redux/auth/slice';
 import { modalClose } from '../../redux/modal/slice';
-
+import Loader from '../Loader/Loader';
 import css from './LogoutModal.module.css';
 
 const LogoutModal = () => {
   const dispatch = useDispatch();
-
+  const authLoading = useSelector(selectAuthLoading);
   const handleDelete = () => {
     dispatch(logout());
   };
@@ -16,17 +17,21 @@ const LogoutModal = () => {
 
   return (
     <>
-      <>
-        <p className={css.logoutTitle}>Are you sure you want to log out?</p>
-        <div className={css.buttonWrapper}>
-          <button type="button" onClick={handleDelete}>
-            Log Out
-          </button>
-          <button type="button" onClick={handleCancel}>
-            Cancel
-          </button>
-        </div>
-      </>
+      {authLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <p className={css.logoutTitle}>Are you sure you want to log out?</p>
+          <div className={css.buttonWrapper}>
+            <button type="button" onClick={handleDelete}>
+              Log Out
+            </button>
+            <button type="button" onClick={handleCancel}>
+              Cancel
+            </button>
+          </div>
+        </>
+      )}
     </>
   );
 };

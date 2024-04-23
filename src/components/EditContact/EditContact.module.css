@@ -7,11 +7,6 @@
   padding-top: 30px;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-}
-
 .searchForm {
   display: flex;
   flex-direction: column;
@@ -55,5 +50,22 @@
 
   button:hover {
     background-color: rgba(225, 225, 225, 0.3);
+  }
+
+  .inputWrapper span {
+    display: inline-block;
+    height: 22px;
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+  }
+
+  .invalid {
+    margin-bottom: 8px;
+  }
+
+  .invalid input {
+    border: 1px solid red;
   }
 }

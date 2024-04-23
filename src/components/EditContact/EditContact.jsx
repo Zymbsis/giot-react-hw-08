@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { modalClose, selectActionData } from '../../redux/modal/slice';
 import css from './EditContact.module.css';
+import { updateContact } from '../../redux/contacts/operations';
 
 const EditContact = () => {
   const dispatch = useDispatch();
   const contact = useSelector(selectActionData);
 
-  // const handleDelete = () => {
-  //   dispatch(deleteContact(contact.id));
-  // };
+  const handleEdit = () => {
+    dispatch(updateContact(contact.id));
+  };
+
   const handleCancel = () => {
     dispatch(modalClose());
   };
@@ -29,8 +31,8 @@ const EditContact = () => {
         />
       </div>
       <div className={css.buttonWrapper}>
-        <button type="button" onClick={handleCancel}>
-          Delete
+        <button type="button" onClick={handleEdit}>
+          Edit
         </button>
         <button type="button" onClick={handleCancel}>
           Cancel

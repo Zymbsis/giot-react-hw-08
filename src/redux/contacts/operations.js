@@ -50,14 +50,15 @@ export const deleteContact = createAsyncThunk(
   }
 );
 
-// export const updateContact = createAsyncThunk(
-//   'contacts/updateContact',
-//   async (contactId, thunkAPI) => {
-//     try {
-//       const { data } = await axiosInstance.patch(`/contacts/${contactId}`);
-//       return data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue('update error');
-//     }
-//   }
-// );
+export const updateContact = createAsyncThunk(
+  'contacts/updateContact',
+  async (contactId, thunkAPI) => {
+    try {
+      const { data } = await contactsAxios.patch(`/contacts/${contactId}`);
+      console.log('Hello world');
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue('update error');
+    }
+  }
+);

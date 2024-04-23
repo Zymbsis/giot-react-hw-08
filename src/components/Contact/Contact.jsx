@@ -36,10 +36,10 @@ const Contact = ({ contact: { id, name, number } }) => {
         <p className={css.number}>{number}</p>
       </div>
       <div className={css.buttonWrapper}>
-        <button className={css.button} type="button" onClick={handleDelete}>
+        <button className={css.button} type="button" onClick={handleEdit}>
           <CiEdit className={css.icon} />
         </button>
-        <button className={css.button} type="button" onClick={handleEdit}>
+        <button className={css.button} type="button" onClick={handleDelete}>
           <MdOutlineDeleteForever className={css.icon} />
         </button>
       </div>

@@ -7,6 +7,11 @@
   padding-top: 30px;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
 .searchForm {
   display: flex;
   flex-direction: column;

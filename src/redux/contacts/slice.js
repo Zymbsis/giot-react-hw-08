@@ -51,7 +51,9 @@ const contactsSlice = createSlice({
       .addCase(updateContact.rejected, handleRejected)
       .addCase(updateContact.fulfilled, (state, action) => {
         state.loading = false;
-        state.items.push(action.payload);
+        state.items.map(contact =>
+          contact.id === action.payload.id ? action.payload : contact
+        );
       })
       .addCase(modalClose, state => {
         state.error = null;

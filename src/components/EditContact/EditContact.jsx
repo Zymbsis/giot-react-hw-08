@@ -22,6 +22,7 @@ const EditContact = () => {
   };
   const handleChangeName = e => {
     credentials.name = e.target.value;
+    console.log(credentials);
   };
   const handleChangeNumber = e => {
     credentials.number = e.target.value;
@@ -32,13 +33,13 @@ const EditContact = () => {
         <input
           type="name"
           name="name"
-          value={contact.name}
+          value={credentials.name}
           onChange={handleChangeName}
         />
         <input
           type="text"
           name="number"
-          value={contact.number}
+          value={credentials.number}
           onChange={handleChangeNumber}
         />
       </div>

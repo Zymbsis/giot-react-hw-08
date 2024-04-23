@@ -9,7 +9,7 @@ const DeleteContact = () => {
   const contact = useSelector(selectContact);
 
   const handleDelete = () => {
-    console.log(contact);
+    console.log(contact.id, contact.name);
 
     // dispatch(deleteContact(contact.id));
   };

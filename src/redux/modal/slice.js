@@ -68,9 +68,4 @@ export const { modalOpen, modalClose } = modalSlice.actions;
 export const { selectIsOpen, selectActionType, selectActionData } =
   modalSlice.selectors;
 
-export const selectContact = createSelector(
-  [selectContacts, selectActionData],
-  (contacts, id) => contacts.filter(contact => contact.id === id)[0]
-);
-
 export const modalReducer = modalSlice.reducer;

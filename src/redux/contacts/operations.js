@@ -59,7 +59,7 @@ export const updateContact = createAsyncThunk(
         `/contacts/${id}`,
         credentials
       );
-      console.log('Hello world');
+      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue('update error');

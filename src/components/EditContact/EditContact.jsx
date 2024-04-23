@@ -32,13 +32,13 @@ const EditContact = () => {
         <input
           type="name"
           name="name"
-          value={credentials.name}
+          value={contact.name}
           onChange={handleChangeName}
         />
         <input
           type="text"
           name="number"
-          value={credentials.number}
+          value={contact.number}
           onChange={handleChangeNumber}
         />
       </div>

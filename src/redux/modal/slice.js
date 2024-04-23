@@ -11,6 +11,7 @@ const initialState = {
   isOpen: false,
   dataModal: { actionType: null, actionData: null },
 };
+
 const handlerForOpenModal = state => {
   state.isOpen = true;
 };
@@ -52,6 +53,7 @@ const modalSlice = createSlice({
       .addCase(logout.rejected, handlerForOpenModal)
       .addCase(fetchContacts.rejected, handlerForOpenModal)
       .addCase(addContact.rejected, handlerForOpenModal)
+      .addCase(updateContact.rejected, handlerForOpenModal)
       .addCase(deleteContact.rejected, handlerForOpenModal);
   },
   selectors: {

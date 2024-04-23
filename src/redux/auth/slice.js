@@ -21,6 +21,7 @@ const handlePending = (state, action) => {
     state.isRefreshing = true;
   }
 };
+
 const handleRejected = (state, action) => {
   state.loading = false;
   state.error = true;

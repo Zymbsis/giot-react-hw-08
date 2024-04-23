@@ -4,6 +4,7 @@ import {
   addContact,
   deleteContact,
   fetchContacts,
+  updateContact,
 } from '../contacts/operations';
 
 const initialState = {
@@ -37,6 +38,11 @@ const modalSlice = createSlice({
         state.dataModal.actionData = null;
       })
       .addCase(deleteContact.pending, state => {
+        state.isOpen = false;
+        state.dataModal.actionType = null;
+        state.dataModal.actionData = null;
+      })
+      .addCase(updateContact.fulfilled, state => {
         state.isOpen = false;
         state.dataModal.actionType = null;
         state.dataModal.actionData = null;

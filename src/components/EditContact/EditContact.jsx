@@ -11,14 +11,13 @@ const EditContact = () => {
   const dispatch = useDispatch();
   const contact = useSelector(selectContact);
 
-  const handleSubmit = (values, action) => {
+  const handleSubmit = values => {
     dispatch(
       updateContact({
         id: contact.id,
         credentials: values,
       })
     );
-    action.resetForm();
   };
 
   const handleCancel = () => {

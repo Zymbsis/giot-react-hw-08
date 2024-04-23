@@ -28,6 +28,9 @@ const modalSlice = createSlice({
       state.dataModal.actionType = null;
       state.dataModal.actionData = null;
     },
+    changeContacts(state, action) {
+      state.dataModal.actionData.name = action.payload;
+    },
   },
   extraReducers: builder => {
     builder
@@ -55,7 +58,7 @@ const modalSlice = createSlice({
   },
 });
 
-export const { modalOpen, modalClose } = modalSlice.actions;
+export const { modalOpen, modalClose, changeContacts } = modalSlice.actions;
 export const { selectIsOpen, selectActionType, selectActionData } =
   modalSlice.selectors;
 export const modalReducer = modalSlice.reducer;

@@ -28,7 +28,7 @@ const EditContact = () => {
           onChange={handleChange}
         />
         <input
-          type="number"
+          type="text"
           name="number"
           value={contact[0].number}
           // onChange={handleChange}

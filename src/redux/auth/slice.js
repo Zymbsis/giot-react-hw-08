@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { login, logout, refreshUser, register } from './operations';
+import { modalClose } from '../modal/slice';
 
 const initialState = {
   user: {
@@ -69,7 +70,10 @@ const authSlice = createSlice({
       .addCase(register.rejected, handleRejected)
       .addCase(login.rejected, handleRejected)
       .addCase(logout.rejected, handleRejected)
-      .addCase(refreshUser.rejected, handleRejected);
+      .addCase(refreshUser.rejected, handleRejected)
+      .addCase(modalClose, state => {
+        state.error = null;
+      });
   },
   selectors: {
     selectUserName: state => state.user.name,

@@ -35,6 +35,7 @@ const ModalWindow = () => {
       shouldCloseOnOverlayClick={true}
       shouldCloseOnEsc={true}
       overlayClassName={css.myOverlay}
+      shouldReturnFocusAfterClose={false}
       className={clsx(css.modal, {
         [css.onOpen]: isModalOpen,
         [css.onClose]: !isModalOpen,

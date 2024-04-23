@@ -8,13 +8,12 @@
 .formWrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
 }
 
 .inputWrapper {
   display: flex;
   flex-direction: column;
-  gap: 5px;
 }
 
 .form {
@@ -33,7 +32,6 @@
 .buttonWrapper {
   display: flex;
   gap: 25px;
-  justify-content: center;
 }
 
 .buttonWrapper {
@@ -60,12 +58,12 @@
   height: 22px;
   color: red;
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   padding-left: 5px;
 }
 
 .invalid {
-  margin-bottom: 8px;
+  margin-bottom: 0px;
 }
 
 .invalid input {

@@ -15,7 +15,7 @@ const EditContact = () => {
     dispatch(
       updateContact({
         id: contact.id,
-        values,
+        credentials: values,
       })
     );
     action.resetForm();

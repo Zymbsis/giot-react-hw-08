@@ -5,7 +5,7 @@ import { FaArrowRight } from 'react-icons/fa';
 import { contactFormValidationSchema } from '../../services/constants';
 import { addContact } from '../../redux/contacts/operations';
 
-import CreateInput from '../CreateInput/CreateInput';
+import InputField from '../InputField/InputField';
 
 import css from './ContactForm.module.css';
 
@@ -28,7 +28,7 @@ const ContactForm = () => {
       validationSchema={contactFormValidationSchema}
     >
       <Form className={css.form}>
-        <CreateInput
+        <InputField
           label="Name"
           name="name"
           type="text"
@@ -37,7 +37,7 @@ const ContactForm = () => {
           wrapperClassName={css.inputWrapper}
           invalidClassName={css.invalid}
         />
-        <CreateInput
+        <InputField
           label="Number"
           name="number"
           type="tel"

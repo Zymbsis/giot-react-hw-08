@@ -1,7 +1,7 @@
 import { useField } from 'formik';
 import clsx from 'clsx';
 
-const CreateInput = ({
+const InputField = ({
   label,
   wrapperClassName,
   invalidClassName,
@@ -21,4 +21,4 @@ const CreateInput = ({
   );
 };
 
-export default CreateInput;
+export default InputField;

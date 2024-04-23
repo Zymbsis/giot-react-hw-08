@@ -4,7 +4,7 @@ import { register } from '../../redux/auth/operations';
 import { Form, Formik } from 'formik';
 import { registrationFormValidationSchema } from '../../services/constants';
 
-import CreateInput from '../InputField/InputField';
+import InputField from '../InputField/InputField';
 
 import css from '../AuthorizationForm.module.css';
 
@@ -24,7 +24,7 @@ const RegistrationForm = () => {
       validationSchema={registrationFormValidationSchema}
     >
       <Form className={css.form}>
-        <CreateInput
+        <InputField
           label="Name"
           id={formId.name}
           placeholder=""
@@ -33,7 +33,7 @@ const RegistrationForm = () => {
           wrapperClassName={css.inputWrapper}
           invalidClassName={css.invalid}
         />
-        <CreateInput
+        <InputField
           label="Email"
           id={formId.email}
           placeholder=""
@@ -42,7 +42,7 @@ const RegistrationForm = () => {
           wrapperClassName={css.inputWrapper}
           invalidClassName={css.invalid}
         />
-        <CreateInput
+        <InputField
           label="Password"
           id={formId.password}
           placeholder=""

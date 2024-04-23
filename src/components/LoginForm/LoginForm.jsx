@@ -4,7 +4,7 @@ import { Form, Formik } from 'formik';
 import { login } from '../../redux/auth/operations';
 import { loginFormValidationSchema } from '../../services/constants';
 
-import CreateInput from '../InputField/InputField';
+import InputField from '../InputField/InputField';
 
 import css from '../AuthorizationForm.module.css';
 
@@ -24,7 +24,7 @@ const LoginForm = () => {
       validationSchema={loginFormValidationSchema}
     >
       <Form className={css.form}>
-        <CreateInput
+        <InputField
           label="Email"
           id={formId.email}
           name="email"
@@ -33,7 +33,7 @@ const LoginForm = () => {
           wrapperClassName={css.inputWrapper}
           invalidClassName={css.invalid}
         />
-        <CreateInput
+        <InputField
           label="Password"
           id={formId.password}
           name="password"

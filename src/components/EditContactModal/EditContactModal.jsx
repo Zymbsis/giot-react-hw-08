@@ -5,7 +5,7 @@ import { modalClose } from '../../redux/modal/slice';
 import { updateContact } from '../../redux/contacts/operations';
 import { selectContact } from '../../redux/contacts/slice';
 
-import CreateInput from '../InputField/InputField';
+import InputField from '../InputField/InputField';
 
 import css from './EditContactModal.module.css';
 
@@ -33,13 +33,13 @@ const EditContact = () => {
     >
       <Form className={css.form}>
         <div className={css.formWrapper}>
-          <CreateInput
+          <InputField
             name="name"
             type="text"
             wrapperClassName={css.inputWrapper}
             invalidClassName={css.invalid}
           />
-          <CreateInput
+          <InputField
             name="number"
             type="tel"
             wrapperClassName={css.inputWrapper}

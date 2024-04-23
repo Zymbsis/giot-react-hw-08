@@ -10,9 +10,9 @@ const EditContact = () => {
 
   const handleEdit = () => {
     dispatch(
-      updateContact(contact[0].id, {
-        name: contact[0].name,
-        number: contact[0].number,
+      updateContact({
+        id: contact[0].id,
+        credentials: { name: contact[0].name, number: contact[0].number },
       })
     );
   };

@@ -3,7 +3,6 @@ import { modalClose } from '../../redux/modal/slice';
 import css from './EditContact.module.css';
 import { updateContact } from '../../redux/contacts/operations';
 import { selectContact } from '../../redux/contacts/slice';
-import { number } from 'yup';
 
 const EditContact = () => {
   const dispatch = useDispatch();

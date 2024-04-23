@@ -9,7 +9,7 @@ import {
 } from '../../redux/modal/slice';
 
 import AuthenticationModal from '../AuthenticationModal/AuthenticationModal';
-import LogoutModal from '../LogoutModal/LogOutModal';
+import LogoutModal from '../LogoutModal/LogoutModal';
 import DeleteContact from '../DeleteContactModal/DeleteContact';
 import EditContact from '../EditContactModal/EditContactModal';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';

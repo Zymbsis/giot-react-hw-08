@@ -13,7 +13,7 @@ const Contact = ({ contact: { id, name, number } }) => {
     dispatch(
       modalOpen({
         modalType: 'DeleteModal',
-        actionData: id,
+        modalId: id,
       })
     );
   };
@@ -22,7 +22,7 @@ const Contact = ({ contact: { id, name, number } }) => {
     dispatch(
       modalOpen({
         modalType: 'EditModal',
-        actionData: id,
+        modalId: id,
       })
     );
   };

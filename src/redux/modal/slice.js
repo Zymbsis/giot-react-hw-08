@@ -9,7 +9,7 @@ import {
 
 const initialState = {
   isOpen: false,
-  dataModal: { modalType: null, actionData: null },
+  dataModal: { modalType: null, modalId: null },
 };
 
 const handlerForOpenModal = state => {
@@ -23,12 +23,12 @@ const modalSlice = createSlice({
     modalOpen(state, action) {
       state.isOpen = true;
       state.dataModal.modalType = action.payload.modalType;
-      state.dataModal.actionData = action.payload.actionData;
+      state.dataModal.modalId = action.payload.modalId;
     },
     modalClose(state) {
       state.isOpen = false;
       state.dataModal.modalType = null;
-      state.dataModal.actionData = null;
+      state.dataModal.modalId = null;
     },
   },
   extraReducers: builder => {
@@ -36,17 +36,17 @@ const modalSlice = createSlice({
       .addCase(logout.fulfilled, state => {
         state.isOpen = false;
         state.dataModal.modalType = null;
-        state.dataModal.actionData = null;
+        state.dataModal.modalId = null;
       })
       .addCase(deleteContact.pending, state => {
         state.isOpen = false;
         state.dataModal.modalType = null;
-        state.dataModal.actionData = null;
+        state.dataModal.modalId = null;
       })
       .addCase(updateContact.pending, state => {
         state.isOpen = false;
         state.dataModal.modalType = null;
-        state.dataModal.actionData = null;
+        state.dataModal.modalId = null;
       })
       .addCase(login.rejected, handlerForOpenModal)
       .addCase(register.rejected, handlerForOpenModal)
@@ -59,12 +59,12 @@ const modalSlice = createSlice({
   selectors: {
     selectIsOpen: state => state.isOpen,
     selectModalType: state => state.dataModal.modalType,
-    selectActionData: state => state.dataModal.actionData,
+    selectModalId: state => state.dataModal.modalId,
   },
 });
 
 export const { modalOpen, modalClose } = modalSlice.actions;
-export const { selectIsOpen, selectModalType, selectActionData } =
+export const { selectIsOpen, selectModalType, selectModalId } =
   modalSlice.selectors;
 
 export const modalReducer = modalSlice.reducer;

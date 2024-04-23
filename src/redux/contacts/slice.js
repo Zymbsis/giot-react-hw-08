@@ -7,7 +7,7 @@ import {
 } from './operations';
 import { selectNameFilter } from '../filters/slice';
 import { logout } from '../auth/operations';
-import { modalClose, selectActionData } from '../modal/slice';
+import { modalClose, selectModalId } from '../modal/slice';
 
 const initialState = { items: [], loading: false, error: null };
 
@@ -82,7 +82,7 @@ export const selectFilteredContacts = createSelector(
 );
 
 export const selectContact = createSelector(
-  [selectContacts, selectActionData],
+  [selectContacts, selectModalId],
   (contacts, id) => contacts.filter(contact => contact.id === id)[0]
 );
 export const contactsReducer = contactsSlice.reducer;

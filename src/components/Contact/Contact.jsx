@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { MdDeleteForever } from 'react-icons/md';
+import { MdOutlineDeleteForever } from 'react-icons/md';
 import { CiEdit } from 'react-icons/ci';
 import { FaUser } from 'react-icons/fa';
 import { FaPhone } from 'react-icons/fa';
@@ -9,11 +9,19 @@ import css from './Contact.module.css';
 
 const Contact = ({ contact: { id, name, number } }) => {
   const dispatch = useDispatch();
-  const handleClick = () => {
+  const handleDelete = () => {
     dispatch(
       modalOpen({
         actionType: 'DeleteModal',
         actionData: { id: id, name: name },
+      })
+    );
+  };
+  const handleEdit = () => {
+    dispatch(
+      modalOpen({
+        actionType: 'EditModal',
+        actionData: { id: id, name: name, number: number },
       })
     );
   };
@@ -28,11 +36,11 @@ const Contact = ({ contact: { id, name, number } }) => {
         <p className={css.number}>{number}</p>
       </div>
       <div className={css.buttonWrapper}>
-        <button className={css.button} type="button" onClick={handleClick}>
+        <button className={css.button} type="button" onClick={handleDelete}>
           <CiEdit className={css.icon} />
         </button>
-        <button className={css.button} type="button" onClick={handleClick}>
-          <MdDeleteForever className={css.icon} />
+        <button className={css.button} type="button" onClick={handleEdit}>
+          <MdOutlineDeleteForever className={css.icon} />
         </button>
       </div>
     </>

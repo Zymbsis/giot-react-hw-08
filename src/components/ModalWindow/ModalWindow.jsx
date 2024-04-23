@@ -15,6 +15,7 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 import clsx from 'clsx';
 import css from './ModalWindow.module.css';
+import EditContact from '../EditContact/EditContact';
 
 const ModalWindow = () => {
   ReactModal.setAppElement('#root');
@@ -49,6 +50,7 @@ const ModalWindow = () => {
           {actionType === 'AuthenticationModal' && <AuthenticationModal />}
           {actionType === 'LogOutModal' && <LogOutModal />}
           {actionType === 'DeleteModal' && <DeleteContact />}
+          {actionType === 'EditModal' && <EditContact />}
           {(authError || contactsError) && <ErrorMessage />}
         </>
       }

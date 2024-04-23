@@ -22,7 +22,7 @@ const SearchBox = () => {
         id={searchFieldId}
         value={value}
         onChange={handleChange}
-      ></input>
+      />
     </div>
   );
 };

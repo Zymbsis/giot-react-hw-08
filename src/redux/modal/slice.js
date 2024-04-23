@@ -43,7 +43,7 @@ const modalSlice = createSlice({
         state.dataModal.actionType = null;
         state.dataModal.actionData = null;
       })
-      .addCase(updateContact.fulfilled, state => {
+      .addCase(updateContact.pending, state => {
         state.isOpen = false;
         state.dataModal.actionType = null;
         state.dataModal.actionData = null;

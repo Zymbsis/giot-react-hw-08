@@ -7,6 +7,7 @@ import {
 } from './operations';
 import { selectNameFilter } from '../filters/slice';
 import { logout } from '../auth/operations';
+import { selectActionData } from '../modal/slice';
 
 const initialState = { items: [], loading: false, error: null };
 
@@ -73,6 +74,10 @@ export const selectFilteredContacts = createSelector(
           contact.number.includes(filterName)
       )
       .toSorted((a, b) => a.name.localeCompare(b.name))
+);
+export const selectContact = createSelector(
+  [selectContacts, selectActionData],
+  (contacts, id) => contacts.filter(contact => contact.id === id)
 );
 export const { clearContacts } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;

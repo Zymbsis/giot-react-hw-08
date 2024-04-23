@@ -21,7 +21,7 @@ const Contact = ({ contact: { id, name, number } }) => {
     dispatch(
       modalOpen({
         actionType: 'EditModal',
-        actionData: { id: id, name: name, number: number },
+        actionData: id,
       })
     );
   };

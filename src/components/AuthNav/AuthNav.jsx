@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { modalClose, selectIsOpen } from '../../redux/modal/slice';
 import clsx from 'clsx';
 import css from './AuthNav.module.css';
@@ -22,7 +22,6 @@ const AuthNav = () => {
       <NavLink className={getNavLinkClass} to="/login" onClick={handleClick}>
         Log In
       </NavLink>
-      {/* <Outlet /> */}
     </nav>
   );
 };

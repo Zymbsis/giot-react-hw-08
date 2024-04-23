@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { MdDeleteForever } from 'react-icons/md';
+import { CiEdit } from 'react-icons/ci';
 import { FaUser } from 'react-icons/fa';
 import { FaPhone } from 'react-icons/fa';
 import { modalOpen } from '../../redux/modal/slice';
@@ -26,9 +27,14 @@ const Contact = ({ contact: { id, name, number } }) => {
         <FaPhone className={css.contactIcon} />
         <p className={css.number}>{number}</p>
       </div>
-      <button className={css.button} type="button" onClick={handleClick}>
-        <MdDeleteForever className={css.icon} />
-      </button>
+      <div className={css.buttonWrapper}>
+        <button className={css.button} type="button" onClick={handleClick}>
+          <CiEdit className={css.icon} />
+        </button>
+        <button className={css.button} type="button" onClick={handleClick}>
+          <MdDeleteForever className={css.icon} />
+        </button>
+      </div>
     </>
   );
 };

@@ -4,7 +4,7 @@ import { modalClose } from '../../redux/modal/slice';
 
 import css from './LogoutModal.module.css';
 
-const LogOutModal = () => {
+const LogoutModal = () => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
@@ -31,4 +31,4 @@ const LogOutModal = () => {
   );
 };
 
-export default LogOutModal;
+export default LogoutModal;

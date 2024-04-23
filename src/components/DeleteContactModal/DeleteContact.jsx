@@ -9,9 +9,9 @@ const DeleteContact = () => {
   const contact = useSelector(selectContact);
 
   const handleDelete = () => {
-    console.log(contact.id, contact.name);
+    console.log(contact[0].id, contact[0].name);
 
-    // dispatch(deleteContact(contact.id));
+    dispatch(deleteContact(contact[0].id));
   };
   const handleCancel = () => {
     dispatch(modalClose());
@@ -20,7 +20,7 @@ const DeleteContact = () => {
   return (
     <div className={css.deleteModal}>
       <p>Are you sure you want to delete this contact?</p>
-      <p>{contact.name}</p>
+      <p>{contact[0].name}</p>
       <div className={css.buttonWrapper}>
         <button type="button" onClick={handleDelete}>
           Delete

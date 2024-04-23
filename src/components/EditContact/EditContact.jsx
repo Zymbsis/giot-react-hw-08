@@ -3,16 +3,17 @@ import { modalClose } from '../../redux/modal/slice';
 import css from './EditContact.module.css';
 import { updateContact } from '../../redux/contacts/operations';
 import { selectContact } from '../../redux/contacts/slice';
+import { number } from 'yup';
 
 const EditContact = () => {
   const dispatch = useDispatch();
   const contact = useSelector(selectContact);
-
+  const credentials = { name: contact.name, number: contact.number };
   const handleEdit = () => {
     dispatch(
       updateContact({
         id: contact.id,
-        credentials: { name: contact.name, number: contact.number },
+        credentials: credentials,
       })
     );
   };
@@ -20,8 +21,11 @@ const EditContact = () => {
   const handleCancel = () => {
     dispatch(modalClose());
   };
-  const handleChange = e => {
-    console.log(contact);
+  const handleChangeName = e => {
+    credentials.name = e.target.value;
+  };
+  const handleChangeNumber = e => {
+    credentials.number = e.target.value;
   };
   return (
     <div className={css.editModal}>
@@ -29,14 +33,14 @@ const EditContact = () => {
         <input
           type="name"
           name="name"
-          value={contact.name}
-          onChange={handleChange}
+          value={credentials.name}
+          onChange={handleChangeName}
         />
         <input
           type="text"
           name="number"
-          value={contact.number}
-          // onChange={handleChange}
+          value={credentials.number}
+          onChange={handleChangeNumber}
         />
       </div>
       <div className={css.buttonWrapper}>

@@ -8,17 +8,17 @@ const getNavLinkClass = ({ isActive }) =>
   clsx(css.navLink, { [css.navActive]: isActive });
 
 const AuthNav = () => {
-  const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(modalClose());
-  };
+  // const dispatch = useDispatch();
+  // const handleClick = () => {
+  //   dispatch(modalClose());
+  // };
 
   return (
     <nav className={css.navigation}>
-      <NavLink className={getNavLinkClass} to="/register" onClick={handleClick}>
+      <NavLink className={getNavLinkClass} to="/register" >
         Register
       </NavLink>
-      <NavLink className={getNavLinkClass} to="/login" onClick={handleClick}>
+      <NavLink className={getNavLinkClass} to="/login" >
         Log In
       </NavLink>
       <Outlet />

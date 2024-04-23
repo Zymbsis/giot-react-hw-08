@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { login, logout, register } from '../auth/operations';
 import {
   addContact,
@@ -23,11 +23,10 @@ const modalSlice = createSlice({
       state.dataModal.actionType = action.payload.actionType;
       state.dataModal.actionData = action.payload.actionData;
     },
-    modalClose(state, action) {
+    modalClose(state) {
       state.isOpen = false;
       state.dataModal.actionType = null;
       state.dataModal.actionData = null;
-      console.log(action.payload);
     },
   },
   extraReducers: builder => {

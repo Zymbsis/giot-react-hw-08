@@ -13,7 +13,7 @@ const EditContact = () => {
     dispatch(modalClose());
   };
   return (
-    <div className={css.editWrapper}>
+    <div className={css.editModal}>
       <div className={css.searchForm}>
         <input
           type="name"

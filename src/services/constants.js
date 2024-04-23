@@ -22,11 +22,13 @@ export const registrationFormValidationSchema = Yup.object().shape({
 
 export const contactFormValidationSchema = Yup.object().shape({
   name: Yup.string()
-    .min(3, 'Too Short! Length must be between 3 and 50 characters')
-    .max(50, 'Too Long! Length must be between 3 and 50 characters')
+    .min(3, 'Too Short! Length must be between 3 and 20 characters')
+    .max(20, 'Too Long! Length must be between 3 and 20 characters')
     .required('Required'),
-  number: Yup.string()
-    .min(3, 'Too Short! Length must be between 3 and 50 characters')
-    .max(50, 'Too Long! Length must be between 3 and 50 characters')
+  number: Yup.number()
+    .min(10, 'Too Short! Length must be between 10 and 15 characters')
+    .max(15, 'Too Long! Length must be between 10 and 15 characters')
+    .positive()
+    .integer()
     .required('Required'),
 });

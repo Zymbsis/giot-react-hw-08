@@ -1,9 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  changeContacts,
-  modalClose,
-  selectActionData,
-} from '../../redux/modal/slice';
+import { modalClose, selectActionData } from '../../redux/modal/slice';
 import css from './EditContact.module.css';
 import { updateContact } from '../../redux/contacts/operations';
 
@@ -18,9 +14,7 @@ const EditContact = () => {
   const handleCancel = () => {
     dispatch(modalClose());
   };
-  const handleChange = e => {
-    dispatch(changeContacts(e.target.value));
-  };
+  const handleChange = e => {};
   return (
     <div className={css.editModal}>
       <div className={css.searchForm}>

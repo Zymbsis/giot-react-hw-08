@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { login, logout, register } from '../auth/operations';
 import {
   addContact,
@@ -6,6 +6,7 @@ import {
   fetchContacts,
   updateContact,
 } from '../contacts/operations';
+import { selectContacts } from '../contacts/slice';
 
 const initialState = {
   isOpen: false,
@@ -66,4 +67,10 @@ const modalSlice = createSlice({
 export const { modalOpen, modalClose } = modalSlice.actions;
 export const { selectIsOpen, selectActionType, selectActionData } =
   modalSlice.selectors;
+
+export const selectContact = createSelector(
+  [selectContacts, selectActionData],
+  (contacts, id) => contacts.filter(contact => contact.id === id)[0]
+);
+
 export const modalReducer = modalSlice.reducer;

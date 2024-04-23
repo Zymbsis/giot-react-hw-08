@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { modalClose } from '../../redux/modal/slice';
 import css from './EditContactModal.module.css';
 import { updateContact } from '../../redux/contacts/operations';
-import { selectContact } from '../../redux/contacts/slice';
+import { selectContact } from '../../redux/modal/slice';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import CreateInput from '../CreateInput/CreateInput';

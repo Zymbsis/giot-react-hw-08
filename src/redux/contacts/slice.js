@@ -1,13 +1,13 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchContacts,
   addContact,
   deleteContact,
   updateContact,
 } from './operations';
-import { selectNameFilter } from '../filters/slice';
+
 import { logout } from '../auth/operations';
-import { modalClose, selectModalId } from '../modal/slice';
+import { modalClose } from '../modal/slice';
 
 const initialState = { items: [], loading: false, error: null };
 
@@ -59,30 +59,6 @@ const contactsSlice = createSlice({
         state.error = null;
       });
   },
-  selectors: {
-    selectContacts: state => state.items,
-    selectLoading: state => state.loading,
-    selectError: state => state.error,
-  },
 });
 
-export const { selectContacts, selectLoading, selectError } =
-  contactsSlice.selectors;
-
-export const selectFilteredContacts = createSelector(
-  [selectContacts, selectNameFilter],
-  (contacts, filterName) =>
-    contacts
-      .filter(
-        contact =>
-          contact.name.toLowerCase().includes(filterName.toLowerCase()) ||
-          contact.number.includes(filterName)
-      )
-      .toSorted((a, b) => a.name.localeCompare(b.name))
-);
-
-export const selectContact = createSelector(
-  [selectContacts, selectModalId],
-  (contacts, id) => contacts.filter(contact => contact.id === id)[0]
-);
 export const contactsReducer = contactsSlice.reducer;

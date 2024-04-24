@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { modalClose, selectIsOpen } from '../../redux/modal/slice';
+import { modalClose } from '../../redux/modal/slice';
+import { selectIsOpen } from '../../redux/modal/selectors';
 import clsx from 'clsx';
 import css from './AuthNav.module.css';
 

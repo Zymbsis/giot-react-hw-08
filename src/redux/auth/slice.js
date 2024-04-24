@@ -76,24 +76,6 @@ const authSlice = createSlice({
         state.error = null;
       });
   },
-  selectors: {
-    selectUserName: state => state.user.name,
-    selectUserEmail: state => state.user.email,
-    selectUserToken: state => state.token,
-    selectIsUserLoggedIn: state => state.isLoggedIn,
-    selectIsUserRefreshing: state => state.isRefreshing,
-    selectAuthLoading: state => state.loading,
-    selectAuthError: state => state.error,
-  },
 });
-export const {
-  selectUserName,
-  selectUserEmail,
-  selectUserToken,
-  selectIsUserLoggedIn,
-  selectIsUserRefreshing,
-  selectAuthLoading,
-  selectAuthError,
-} = authSlice.selectors;
 
 export const authReducer = authSlice.reducer;

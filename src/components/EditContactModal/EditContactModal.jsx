@@ -3,7 +3,7 @@ import { Form, Formik } from 'formik';
 import { contactFormValidationSchema } from '../../services/constants';
 import { modalClose } from '../../redux/modal/slice';
 import { updateContact } from '../../redux/contacts/operations';
-import { selectContact } from '../../redux/contacts/slice';
+import { selectContact } from '../../redux/contacts/selectors';
 
 import InputField from '../InputField/InputField';
 

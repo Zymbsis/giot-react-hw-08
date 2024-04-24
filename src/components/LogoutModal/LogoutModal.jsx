@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/auth/operations';
-import { selectAuthLoading } from '../../redux/auth/slice';
+import { selectAuthLoading } from '../../redux/auth/selectors';
 import { modalClose } from '../../redux/modal/slice';
 import Loader from '../Loader/Loader';
 import css from './LogoutModal.module.css';

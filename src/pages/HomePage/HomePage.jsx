@@ -1,16 +1,15 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsUserLoggedIn } from '../../redux/auth/slice';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import { modalOpen } from '../../redux/modal/slice';
 import css from './HomePage.module.css';
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const isUserLoggedIn = useSelector(selectIsUserLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const handleClick = () => {
-    !isUserLoggedIn &&
-      dispatch(modalOpen({ modalType: 'AuthenticationModal' }));
+    !isLoggedIn && dispatch(modalOpen({ modalType: 'AuthenticationModal' }));
   };
 
   return (
@@ -18,7 +17,7 @@ const HomePage = () => {
       <div className={`${css.container} container`}>
         <Link
           className={css.phoneBookLink}
-          to={isUserLoggedIn && '/contacts'}
+          to={isLoggedIn && '/contacts'}
           onClick={handleClick}
         >
           PhoneBook

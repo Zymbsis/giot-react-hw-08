@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectAuthLoading } from '../redux/auth/slice';
+import { selectAuthLoading } from '../redux/auth/selectors';
 
 import Loader from '../components/Loader/Loader';
 import LoginForm from '../components/LoginForm/LoginForm';

@@ -36,7 +36,6 @@ const modalSlice = createSlice({
       .addCase(logout.fulfilled, state => {
         state.isOpen = false;
         state.dataModal.modalType = null;
-        state.dataModal.modalId = null;
       })
       .addCase(deleteContact.pending, state => {
         state.isOpen = false;
@@ -56,15 +55,8 @@ const modalSlice = createSlice({
       .addCase(updateContact.rejected, handlerForOpenModal)
       .addCase(deleteContact.rejected, handlerForOpenModal);
   },
-  selectors: {
-    selectIsOpen: state => state.isOpen,
-    selectModalType: state => state.dataModal.modalType,
-    selectModalId: state => state.dataModal.modalId,
-  },
 });
 
 export const { modalOpen, modalClose } = modalSlice.actions;
-export const { selectIsOpen, selectModalType, selectModalId } =
-  modalSlice.selectors;
 
 export const modalReducer = modalSlice.reducer;

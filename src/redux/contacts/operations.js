@@ -28,7 +28,7 @@ export const addContact = createAsyncThunk(
   'contacts/addContact',
   async ({ name, number }, thunkAPI) => {
     try {
-      setAuthHeader(thunkAPI);
+      // setAuthHeader(thunkAPI);
       const { data } = await contactsAxios.post('/contacts', { name, number });
       return data;
     } catch (error) {
@@ -41,7 +41,7 @@ export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (contactId, thunkAPI) => {
     try {
-      setAuthHeader(thunkAPI);
+      // setAuthHeader(thunkAPI);
       const { data } = await contactsAxios.delete(`/contacts/${contactId}`);
       return data;
     } catch (error) {
@@ -54,7 +54,7 @@ export const updateContact = createAsyncThunk(
   'contacts/updateContact',
   async ({ id, credentials }, thunkAPI) => {
     try {
-      setAuthHeader(thunkAPI);
+      // setAuthHeader(thunkAPI);
       const { data } = await contactsAxios.patch(
         `/contacts/${id}`,
         credentials

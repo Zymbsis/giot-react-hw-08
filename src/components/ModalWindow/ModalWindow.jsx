@@ -1,12 +1,8 @@
 import ReactModal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectError } from '../../redux/contacts/slice';
-import { selectAuthError } from '../../redux/auth/slice';
-import {
-  modalClose,
-  selectModalType,
-  selectIsOpen,
-} from '../../redux/modal/slice';
+import { selectError } from '../../redux/contacts/selectors';
+import { selectAuthError } from '../../redux/auth/selectors';
+import { modalClose } from '../../redux/modal/slice';
 
 import AuthenticationModal from '../AuthenticationModal/AuthenticationModal';
 import LogoutModal from '../LogoutModal/LogoutModal';
@@ -16,6 +12,7 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 import clsx from 'clsx';
 import css from './ModalWindow.module.css';
+import { selectIsOpen, selectModalType } from '../../redux/modal/selectors';
 
 const ModalWindow = () => {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
-import { selectContact } from '../../redux/contacts/slice';
+import { selectContact } from '../../redux/contacts/selectors';
 import { modalClose } from '../../redux/modal/slice';
 import css from './DeleteContact.module.css';
 

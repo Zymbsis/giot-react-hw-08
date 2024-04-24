@@ -5,6 +5,7 @@ import ModalWindow from '../ModalWindow/ModalWindow';
 import Loader from '../Loader/Loader';
 
 import css from './Layout.module.css';
+// import { Toaster } from 'react-hot-toast';
 
 const Layout = ({ children }) => {
   return (
@@ -19,6 +20,7 @@ const Layout = ({ children }) => {
       >
         {children}
       </Suspense>
+      {/* <Toaster /> */}
       <ModalWindow />
     </>
   );

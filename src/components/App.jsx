@@ -24,31 +24,6 @@ const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  useEffect(() => {
-    async function fetchNovaPoshtaData() {
-      const params = {
-        apiKey: '6e62026c53e899af4a129224065bbe73',
-        modelName: 'Address',
-        calledMethod: 'searchSettlements',
-        methodProperties: {
-          CityName: 'київ',
-          Limit: '50',
-          Page: '2',
-        },
-      };
-      const url = `https://api.novaposhta.ua/v2.0/json/`;
-      try {
-        const response = await axios.get(url, params);
-        console.log(response.data);
-
-        return response.data;
-      } catch (error) {
-        console.error('Error fetching data from Nova Poshta API:', error);
-      }
-    }
-    fetchNovaPoshtaData();
-  }, []);
-
   return isRefreshing ? (
     <Loader />
   ) : (

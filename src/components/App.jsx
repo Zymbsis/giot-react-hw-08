@@ -28,15 +28,13 @@ const App = () => {
     const fetch = async () => {
       try {
         const res = await axios.get('https://api.novaposhta.ua/v2.0/json/', {
-          params: {
-            apiKey: '421eb896bf2f51788a0fdf7e869cb6c3',
-            modelName: 'Address',
-            calledMethod: 'searchSettlements',
-            methodProperties: {
-              CityName: 'київ',
-              Limit: '50',
-              Page: '2',
-            },
+          apiKey: '421eb896bf2f51788a0fdf7e869cb6c3',
+          modelName: 'Address',
+          calledMethod: 'searchSettlements',
+          methodProperties: {
+            CityName: 'київ',
+            Limit: '50',
+            Page: '2',
           },
         });
         console.log(res);
